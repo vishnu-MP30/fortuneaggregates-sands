@@ -1,0 +1,53 @@
+/* Fortune Aggregates & Sands — Effects: radii, borders, shadows, motion, textures */
+
+:root {
+  /* ---- Corner radii — soft, like the rounded business card ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;   /* card corners on the brand stationery */
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Borders ---- */
+  --border-width: 1px; /* @kind spacing */
+  --hairline: 1px solid var(--border); /* @kind other */
+  --hairline-strong: 1px solid var(--border-strong); /* @kind other */
+
+  /* ---- Shadows — deep, warm, never harsh black ---- */
+  --shadow-sm: 0 1px 2px rgba(8, 7, 4, 0.40);
+  --shadow-md: 0 8px 24px rgba(8, 7, 4, 0.45);
+  --shadow-lg: 0 24px 60px rgba(8, 7, 4, 0.55);
+  --shadow-glow: 0 0 32px rgba(200, 151, 31, 0.28);   /* the logo's gold halo */
+  --shadow-glow-soft: 0 0 18px rgba(200, 151, 31, 0.16);
+  --ring-inset: inset 0 0 0 1px var(--border); /* @kind shadow */
+
+  /* ---- Gradients ---- */
+  --grad-gold: linear-gradient(135deg, #E0BD55 0%, #C8971F 52%, #A87C16 100%); /* @kind color */
+  --grad-sun:  radial-gradient(circle at 50% 38%, #DDB23E 0%, #C8971F 60%, #9A7414 100%); /* @kind color */
+  --grad-green: linear-gradient(160deg, #1E5435 0%, #14422B 60%, #0E2F1F 100%); /* @kind color */
+  --grad-night: linear-gradient(180deg, #121110 0%, #0A0A09 100%); /* @kind color */
+
+  /* ---- Motion — restrained, weighty, no bounce ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur-base: 200ms; /* @kind other */
+  --dur-slow: 360ms; /* @kind other */
+
+  /* ---- Signature texture: faint gold star/dust field (from the card) ---- */
+  --dust-dark: radial-gradient(circle, rgba(200,151,31,0.16) 0.6px, transparent 0.7px); /* @kind other */
+  --dust-size: 22px 22px; /* @kind other */
+}
+
+/* Reusable surface helpers */
+.fas-dust {
+  background-image: var(--dust-dark);
+  background-size: var(--dust-size);
+}
+.fas-card {
+  background: var(--surface);
+  border: var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}

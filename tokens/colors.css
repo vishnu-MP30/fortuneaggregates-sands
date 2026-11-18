@@ -1,0 +1,111 @@
+/* Fortune Aggregates & Sands — Color tokens
+   A dark-first, earthy-premium palette: gold + sand + forest green on near-black.
+   Base ramps first, semantic aliases below. */
+
+:root {
+  /* ---- Gold (primary brand) — the sun, the wordmark glow ---- */
+  --gold-50:  #FBF6E8;
+  --gold-100: #F4E9C6;
+  --gold-200: #E8D6A4;  /* "sand" — the FORTUNE cream */
+  --gold-300: #DCC074;
+  --gold-400: #D0A93F;
+  --gold-500: #C8971F;  /* core brand gold */
+  --gold-600: #A87C16;
+  --gold-700: #836011;
+  --gold-800: #5E450C;
+  --gold-900: #3A2B08;
+
+  /* ---- Amber (the tagline / secondary warm) ---- */
+  --amber-400: #D08F23;
+  --amber-500: #C07C16;  /* "Strength You Can Build On" */
+  --amber-600: #9A6210;
+
+  /* ---- Forest green (the mountain) ---- */
+  --green-50:  #E8F0EA;
+  --green-100: #C5DBCD;
+  --green-300: #5E9170;
+  --green-500: #2E6B45;
+  --green-600: #1E5435;
+  --green-700: #14422B;  /* core mountain green */
+  --green-800: #0E2F1F;
+  --green-900: #081C12;
+
+  /* ---- Warm neutrals (charcoal → sandstone → paper) ---- */
+  --ink-950: #0A0A09;  /* the card black */
+  --ink-900: #121110;
+  --ink-850: #181714;
+  --ink-800: #211E18;
+  --ink-700: #2E2A22;
+  --ink-600: #423C30;
+  --warm-500: #6B6253;
+  --warm-400: #8C8273;
+  --warm-300: #B3A998;
+  --warm-200: #D6CEBE;
+  --warm-100: #EAE3D4;
+  --warm-50:  #F6F1E6;
+  --paper:    #FAF7EF;  /* warm document white */
+  --white:    #FFFFFF;
+
+  /* ---- Status ---- */
+  --success: #2E6B45;
+  --warning: #C8971F;
+  --danger:  #B03A2E;
+  --info:    #3E6E8E;
+
+  /* =========================================================
+     SEMANTIC ALIASES — default (DARK) theme
+     ========================================================= */
+  --bg-base:      var(--ink-950);
+  --bg-raised:    var(--ink-900);
+  --surface:      var(--ink-850);
+  --surface-2:    var(--ink-800);
+  --surface-line: var(--ink-700);
+
+  --border:       rgba(232, 214, 164, 0.14);
+  --border-strong:rgba(232, 214, 164, 0.28);
+
+  --text-strong:  var(--gold-200);   /* headlines on dark */
+  --text-body:    var(--warm-200);
+  --text-muted:   var(--warm-400);
+  --text-faint:   var(--warm-500);
+  --text-on-gold: var(--ink-950);
+  --text-on-green:var(--gold-200);
+
+  --accent:        var(--gold-500);
+  --accent-hover:  var(--gold-400);
+  --accent-press:  var(--gold-600);
+  --accent-soft:   rgba(200, 151, 31, 0.14);
+  --accent-2:      var(--green-700);
+  --accent-2-soft: rgba(20, 66, 43, 0.40);
+
+  --focus-ring:   rgba(208, 169, 63, 0.55);
+}
+
+/* =========================================================
+   LIGHT theme — for stationery & documents printed on paper.
+   Apply with: <body data-theme="light"> or class .theme-light
+   ========================================================= */
+[data-theme="light"], .theme-light {
+  --bg-base:      var(--paper);
+  --bg-raised:    var(--white);
+  --surface:      var(--white);
+  --surface-2:    var(--warm-50);
+  --surface-line: var(--warm-100);
+
+  --border:       rgba(40, 34, 22, 0.12);
+  --border-strong:rgba(40, 34, 22, 0.24);
+
+  --text-strong:  var(--ink-900);
+  --text-body:    #2B2820;
+  --text-muted:   var(--warm-500);
+  --text-faint:   var(--warm-400);
+  --text-on-gold: var(--ink-950);
+  --text-on-green:var(--gold-200);
+
+  --accent:        var(--gold-600);
+  --accent-hover:  var(--gold-500);
+  --accent-press:  var(--gold-700);
+  --accent-soft:   rgba(200, 151, 31, 0.12);
+
+  --focus-ring:   rgba(168, 124, 22, 0.45);
+}

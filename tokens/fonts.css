@@ -1,0 +1,9 @@
+/* Fortune Aggregates & Sands — Webfonts
+   SUBSTITUTION NOTE: The original brand artwork was set in proprietary/unknown
+   fonts. We substitute the closest Google Fonts:
+     • Montserrat  → the geometric uppercase wordmark ("FORTUNE", headings)
+     • Quicksand   → the rounded, friendly tagline / name / contact text
+   If you have the real brand fonts, drop the binaries in /assets/fonts and
+   replace this @import with local @font-face rules. */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Quicksand:wght@400;500;600;700&display=swap");

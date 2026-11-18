@@ -1,0 +1,184 @@
+<USER_REQUEST>
+next we need to check and fix entire website sections one by one  based on accroding to the readme file 
+C:\Users\ACER\Downloads\Fortune Aggregates Design System\readme.md
+analysis that file , if the current website all sections font, typography, color of texts , taglines, cta font like everything fixed based we need to do
+
+ so TASK: Bring the ENTIRE website into line with the client's brand system, section by section, from the top bar to the footer. KEEP every layout, section order, image and component structure exactly as it is. Change only: typography, sizes, spacing, colour usage, copy, taglines, keywords, CTAs, small brand details and metadata.
+
+ORDER OF WORK
+1. Read in full: readme.md, AGENTS.md, tokens/*.css, styles.css. Do not edit the token files. Where this prompt and AGENTS.md disagree, this prompt wins.
+2. Write AUDIT.md: for each section a table of Rule | Pass/Fail | Where | Fix. Also list unconfirmed claims, voice breaks, missing elements, and any raw hex, px font sizes or off-system fonts. Do not stop; continue to step 3.
+3. Apply every fix in place.
+4. Verify (see DONE WHEN). Then stop and report per section what changed.
+
+=====================================================================
+A. GLOBAL FOUNDATIONS
+=====================================================================
+
+THEME
+- <html lang="en-IN" data-theme="light">. Paper (--bg-base) is the base of the site.
+- Green bands (--grad-green) and dark moments use this class, defined once in globals.css and added to the band element, because the light theme's token overrides are inherited by nested elements:
+  .theme-dark { --bg-base: var(--ink-950); --bg-raised: var(--ink-900); --surface: var(--ink-850); --surface-2: var(--ink-800); --border: rgba(232,214,164,.14); --border-strong: rgba(232,214,164,.28); --text-strong: var(--gold-200); --text-body: var(--warm-200); --text-muted: var(--warm-400); --accent: var(--gold-500); --accent-soft: rgba(200,151,31,.14); }
+  (These values are copied from the dark defaults in colors.css; this is the only place rgba values are allowed.)
+- Define once in globals.css: --container-site: 1240px; --tracking-display: 0.02em; --header-h (real height of header, or TopBar plus header if both are sticky).
+
+FONTS
+- Only Montserrat (--font-display) and Quicksand (--font-body), loaded with next/font/google (Montserrat 400, 500, 600, 700, 800; Quicksand 400, 500, 600, 700) and mapped onto the tokens in globals.css AFTER the token import. Remove any other font, including monospace, from the whole codebase.
+
+TYPE MAP (all values are tokens; "paper" = default, "dark" = inside .theme-dark or on green)
+- Wordmark FORTUNE: Montserrat 700, uppercase, --tracking-wordmark, --grad-gold text. Sub "AGGREGATES AND SANDS": Montserrat 600, uppercase, 0.16em; paper --green-700, dark --gold-200.
+- Eyebrow / section label: Montserrat 600, --fs-xs, uppercase, --tracking-caps; paper --gold-700, dark --gold-300.
+- H1: Montserrat 800, clamp(var(--fs-3xl), 4.4vw, var(--fs-5xl)), uppercase, --tracking-display, --lh-tight; --paper over photo; ONE word in --grad-gold.
+- H2: Montserrat 700, clamp(var(--fs-2xl), 3.4vw, var(--fs-4xl)), uppercase, --tracking-display, --lh-tight; paper --green-700, dark --gold-200.
+- H3 / card title: Montserrat 600 to 700, --fs-xl, sentence case, --tracking-tight, --lh-snug; paper --green-700, dark --gold-200.
+- Lead paragraph: Quicksand 500, --fs-lg, --lh-relaxed; paper --text-muted, dark --warm-100.
+- Body: Quicksand 500, --fs-md (cards --fs-sm), --lh-relaxed; paper --text-body, dark --warm-100.
+- Caption / meta: Quicksand 500, --fs-xs to --fs-sm; --text-muted.
+- Buttons: Montserrat 600, uppercase, --tracking-caps; sizes sm --fs-2xs, md --fs-xs, lg --fs-sm. Pill shaped.
+- Nav links: Montserrat 600, --fs-xs, uppercase, --tracking-caps; paper --text-muted, active --text-strong with 2px --gold-500 underline.
+- Stat number: Montserrat 700, line-height 1, --fs-3xl to --fs-5xl; unit 0.45em --accent; label Quicksand 600 --fs-xs uppercase 0.06em --text-muted.
+- Tagline "Strength You Can Build On": Quicksand 500, 0.01em, title case; paper --gold-700, dark --amber-500. Footer rule version: Montserrat uppercase tracked.
+- Form labels: Quicksand 600, --fs-xs, uppercase, 0.04em, --text-muted. Inputs: Quicksand 500, --fs-sm.
+- Badges: Montserrat 600, --fs-2xs, uppercase, 0.08em. Tags: Quicksand 600, --fs-xs.
+- Weights only from --fw-* tokens, sizes only from --fs-* tokens, line heights only from --lh-* tokens.
+- Gold gradient text (--grad-gold) ONLY on the wordmark and one word or number per screen. Remove it everywhere else.
+
+COLOUR RULES
+- Palette: Paper, Sand, Fortune Gold, Forest Green, Night Ink via tokens only. No raw hex, rgb, hsl or named colours (except the .theme-dark block above). Gradient stops use tokens.
+- Gold TEXT on paper uses --gold-700 or darker. --gold-500 is for fills, icons, rules and display type of 28px or larger.
+- Hairlines use --border / --border-strong (gold-tinted), never grey. Shadows use --shadow-sm/md/lg (warm), never pure black.
+- One gold glow per view. --dust-dark texture only on green and dark bands, never on paper.
+- Rhythm: paper, green band, paper, green band, ending in the footer. Use a green band at most every second section.
+
+SPACING AND LAYOUT (4px grid, tokens only)
+- Content max width var(--container-site). Side padding: --space-7 (desktop), --space-5 (below 1024), --space-4 (below 640).
+- Section vertical padding: --space-9 desktop, --space-8 below 1024, --space-7 below 640.
+- Stack rhythm inside sections: eyebrow to heading --space-3; heading to lead --space-4; lead to buttons or content --space-6; card grid gap --space-5; card padding --space-5 (large cards --space-6 to --space-7).
+- Radii: cards --radius-lg, large panels --radius-xl, controls --radius-sm, buttons and tags pills.
+- Breakpoints: 1440 reference, 1024, 768, 390. No horizontal scroll at any width.
+
+COMPONENT RULES
+- Buttons: Primary = --grad-gold with --text-on-gold; hover brightness lift plus --shadow-glow; Secondary = --green-700 with --gold-200 text; Outline = 1px border and text in --gold-700 (paper) or --gold-300 border and --paper text (dark); hover = --accent-soft fill; Ghost = transparent. Press translateY(1px). Focus 3px --focus-ring.
+- Cards: --surface, 1px --border, --radius-lg, --shadow-md. Featured cards add a 3px --accent top rule. Interactive cards lift 2px on hover.
+- Feature icon tiles: 24px Lucide icon (strokeWidth 2) in a rounded --accent-2-soft square, tinted --gold-700 on paper or --gold-300 on dark.
+- Icons: lucide-react only, strokeWidth 2, no fill. No emoji. No custom pictograms.
+- Motion: 120 to 360ms, --ease-standard or --ease-out, fade-and-rise 16px entrances, 2px hover lift, no bounce. Everything animated is wrapped in prefers-reduced-motion.
+- Logo: public/brand/icon-badge.png plus the CSS wordmark. Never redraw. The full lockup image (logo-full-dark) only on dark backgrounds.
+
+=====================================================================
+B. VOICE, CONTENT, CTA SYSTEM
+=====================================================================
+
+VOICE
+Confident, plain-spoken, trade-credible: an experienced supplier talking to a site engineer. Short sentences, proof over adjectives, "we" and "you/your site". No emoji, almost no exclamation marks. Headlines and labels UPPERCASE, body sentence case. Brand vocabulary where true: graded, tested, washed, dispatched, to spec, IS 383, ex-yard, per MT.
+Numbers: "20mm", "6mm", MT for tonnes, rupees as ₹ via Intl.NumberFormat('en-IN'), phone "+91 84228 19302", PIN 574144.
+Replace generic lines ("Learn more", "Get started", "Submit", "Welcome to...", "Contact us" for purchases) with the brand CTAs below.
+
+NAME AND TAGLINE
+- Full name "Fortune Aggregates and Sands". "& Sands" only in tight UI. Never "Fortune Aggregates & Sands" in headings, titles, metadata or legal lines.
+- Tagline "Strength You Can Build On" exactly, in the hero tagline strip, the footer, and the meta description. Once per screen.
+
+CTA SYSTEM (identical everywhere)
+- Primary: "Request a Quote" (gold pill, ArrowUpRight icon) -> /quote.
+- Secondary: "View Materials" (outline pill) -> /materials.
+- WhatsApp: "Ask on WhatsApp" -> https://wa.me/918422819302?text=Hi%2C%20I%20need%20a%20quote
+- Phone tel:+918422819302. Email mailto:fortuneaggregatesands@gmail.com.
+- A Request a Quote CTA must appear in the header, the hero, directly after the Materials section, and in the closing band above the footer.
+
+CLIENT PROMISES (verbatim, nothing else on trust)
+1 Consistent grading: every load matches the grade on the challan.
+2 Reliable supply: delivered when committed. If we will be late, we call first.
+3 Honest weights & pricing: a weighbridge slip with every load. Rates stated in writing.
+4 Compliant, for the long term: licences, tax and records kept in order. We plan to be here.
+
+UNCONFIRMED CLAIMS (keep only if already present; add // DRAFT or // PLACEHOLDER, list in AUDIT.md, move into data/site.ts): "within 24 hours", "quote within the hour", "IS 383", "50,000 MT", "12+ years", every price, capacity, year, project name, testimonial, certificate or licence claim. Do NOT add new numbers or claims. Remove: "Mining Licences & GST Registered", "Lab Test Certificates", "Weighbridge Calibration & Fleet", "Primary Quarry & Crushing Complex", "Heavy Civil Foundations", "Built for Infrastructure & Commercial High-Rises", "Official Desk", "Dispatch Phone Desk". Instagram: remove until the client confirms a handle.
+
+REAL BUSINESS DATA (data/site.ts, one source for top bar, contact page, footer and JSON-LD)
+Bibin Thomas (Proprietor, // CONFIRM title) · +91 84228 19302 · fortuneaggregatesands@gmail.com · Sashtav Rd, Yedapadavu, Mangaluru, Karnataka – 574144 · maps URL https://maps.google.com/?q=Sashtav+Rd,+Yedapadavu,+Mangaluru,+Karnataka+574144 (// CONFIRM: replace with the client's Google Business Profile link).
+
+=====================================================================
+C. SECTION-BY-SECTION SPEC
+=====================================================================
+For each section: keep the existing layout and images. Apply the type map, colours and spacing above, and this content. Where a section's current copy already follows the voice rules, keep it.
+
+1. TOP BAR (paper, hairline bottom border, height --space-7)
+- Left: Mail, Phone, MapPin icons (--gold-600), Quicksand 500 --fs-sm --text-body: fortuneaggregatesands@gmail.com · +91 84228 19302 · Sashtav Rd, Yedapadavu, Mangaluru – 574144. Right: WhatsApp icon link. Below 768 keep only phone and WhatsApp.
+
+2. HEADER (sticky, --bg-raised at about 90% with blur, hairline bottom border)
+- Logo = badge + CSS wordmark (+ sub line). Nav in this order: Home, About, Materials, Process, Projects, Contact (only link to pages that exist; add // TODO for the rest). Right: primary pill "Request a Quote" with ArrowUpRight, hamburger below 1024 opening a full-height paper drawer with the same links and the CTA.
+
+3. HERO (photo background, forest-green left overlay, min-height 100vh minus header)
+- Eyebrow "MANGALURU · COASTAL KARNATAKA" (--gold-300).
+- H1, three lines: "Built to Spec," / "Every Single" / "Load." with "Load." in --grad-gold. Colour --paper.
+- Lead (--warm-100, max 520px): "IS 383 graded blue metal, washed M-Sand, chips and GSB. Quarried, crushed and screened in-house, so what you order is exactly what arrives." (IS 383 = // DRAFT)
+- Buttons: primary "Request a Quote", outline "View Materials".
+- Two image cards (bottom right): "20mm Blue Metal" / "RCC grade", "Manufactured Sand" / "Washed · silt-free"; titles Montserrat 600 --green-700, captions --text-muted; gold square arrow badge.
+- Bottom strip: "STRENGTH YOU CAN BUILD ON" (--gold-300, tracked uppercase, centred).
+
+4. STAGE PANELS (3 sticky stacked panels, forest green, .theme-dark)
+- Counter "01 / 03" top right (--gold-300). Eyebrow with 1px --gold-500 rule. H2 Montserrat 700 uppercase --paper. Paragraphs --warm-100. Button solid paper with --green-700 text and ArrowUpRight. Watermark icon --gold-300 at 12%.
+- Panel 1: eyebrow "Quarried and crushed"; title "From rock to graded stone"; p1 "We quarry rock and crush it into aggregates at our base in Yedapadavu, Mangaluru, Karnataka. Operations are linked to Kerala, so we supply builders across the region."; p2 "Construction aggregates and manufactured sand, made in-house. [CONFIRM: grades]"; button "Our Materials" -> /materials; icon Mountain.
+- Panel 2: eyebrow "Washed and graded"; title "Graded to match the challan"; p1 "We wash and grade every material, so each load matches the grade on the challan."; p2 "Tight, repeatable grading, batch after batch, so mix designs hold."; button "See Our Grades" -> /materials; icon Scale.
+- Panel 3: eyebrow "Delivered, load after load"; title "Weighed, written down, on time"; p1 "Delivered when committed. If we will be late, we call first."; p2 "A weighbridge slip comes with every load, and rates are stated in writing."; button "Request a Quote" -> /quote; icon Truck.
+
+5. AUDIENCE (paper)
+- Tag chip "Who we serve" (--accent-soft, gold bar, --gold-700 text). H2 "Five kinds of customer. One standard for all of them." (--green-700). Right paragraph (DRAFT): "Whoever receives the load, the standard does not change: the same grading, honest weights and clean paperwork on every delivery."
+- Five cards, verbatim: 01 Builders: "Material that behaves the same on every pour, at the site when the slab is scheduled." 02 Contractors: "Steady supply across the life of a project, with clear rates and clean paperwork." 03 RMC plants: "Tight, repeatable grading batch after batch, so mix designs hold." 04 Infra & govt works: "Compliant material, test certificates and documents that pass inspection." 05 Dealers: "A supplier they can resell with confidence: steady stock, honest weights, fair terms."
+- Card numbers Montserrat 700 --gold-700; titles --green-700; body --text-muted --fs-sm.
+
+6. MATERIALS (warm paper --surface-2, hairlines top and bottom)
+- Tag "Our materials". H2 "The right grade for every pour". Lead: "Graded, tested and dispatched to spec. Pick a material to see its size, uses and features."
+- Use filters (Tags with Lucide icons): All · Foundation · Slab & RCC · Masonry & plaster · Blocks & paving · Roads. Non-matching circles dim to 35%.
+- Eight circular thumbnails with name and size: 40mm blue metal, 20mm blue metal, 12mm aggregate, 6mm chips, Stone dust (0 to 4mm), Manufactured sand (0 to 4.75mm), Plastering sand (fine), GSB (graded mix). Selected circle: 3px --gold-500 ring. Names Montserrat 600 --fs-sm; sizes Quicksand --text-muted.
+- Detail panel: eyebrow = material type; H3 name uppercase Montserrat 800 --fs-3xl --green-700; one-line description; "Best for" chips; 3 to 4 features with gold Check icons; spec strip SIZE · TYPE · SUPPLY ("Per MT, ex-yard [CONFIRM]"); buttons "Request a Quote" and "Ask on WhatsApp".
+- Images must match their material (see image prompts already supplied): dark bluish-grey angular granite for blue metal, fine grey dust, greyish-tan angular M-sand, finer pale plastering sand, mixed grey GSB. Do not swap files; flag any image that does not look like its material in AUDIT.md.
+- Directly after this section: a slim CTA row, "Not sure which grade you need?" (Quicksand --fs-lg) + primary "Request a Quote" + secondary "Ask on WhatsApp".
+
+7. CLOSING QUOTE BAND (forest green, .theme-dark, --dust-dark texture; add only if missing)
+- H2 "Ready to order?" (--gold-200). Lead "Send your material list and site PIN. We'll quote within the hour." (--warm-100, DRAFT). Buttons: primary "Request a Quote", outline "Ask on WhatsApp". Section padding --space-9. Tagline not repeated here.
+
+8. FOOTER (keep the existing gold background and the giant FORTUNE wordmark exactly as is)
+- Row 1: two cards, gap --space-5, brand card about 38% and contact card about 62%, both --ink-900, 1px --border-strong, --radius-xl, --shadow-lg, padding --space-7, no glow.
+  - Brand card (centred): badge 92px; "AGGREGATES AND SANDS" (Montserrat 600, uppercase, --tracking-caps, --gold-200); "Strength You Can Build On" (Quicksand 500, --fs-lg, --amber-400).
+  - Contact card: left QR 130px (qrcode.react QRCodeSVG, level H, fgColor currentColor with colour var(--gold-500), bgColor transparent, badge centred at about 22%, in an --ink-950 tile), caption "Scan for location" (--amber-400), link "Open in Maps". Right: name "Bibin Thomas" (Quicksand 700, --fs-2xl, --gold-200); rows Phone, Mail, WhatsApp (Quicksand 500, --fs-md, --gold-300, 44px tap height); hairline; <address> "Sashtav Rd, Yedapadavu, / Mangaluru, Karnataka – 574144" (--amber-400).
+- Row 2: slim nav (Home · About · Materials · Process · Projects · Contact, Montserrat 600 --fs-xs uppercase --tracking-caps, --ink-950) and one pill "Request a Quote" (--ink-950 background, --gold-200 text).
+- Row 3: "© 2026 Fortune Aggregates and Sands. All rights reserved." [CONFIRM legal name and form], plus Privacy Policy and Terms & Conditions only if those pages exist. Quicksand --fs-xs, --ink-950.
+- Row 4: giant FORTUNE wordmark unchanged. Left label becomes "STRENGTH YOU CAN BUILD ON" (Montserrat 600, uppercase, --tracking-caps, --ink-950, keep the dot). Right tag becomes "AGGREGATES AND SANDS".
+- Text on the gold background is --ink-950 only (no green or white). Remove: the three-column CONTACT / SITEMAP / CHANNELS layout and its [01 / 03] counters, all monospace text, and the removed claims listed in section B.
+- Below 768 and on touch devices: hide the QR and show a full-width "Get Directions" button (MapPin icon, --ink-950 background, --gold-200 text). Cards stack below 1024.
+
+9. ANY OTHER SECTION OR PAGE PRESENT (Promise, Process, Projects, Quote, Contact, etc.)
+Apply the type map, colours, spacing and CTA system. Use the client copy above when it fits; otherwise keep the existing copy if it already follows the voice rules, and flag it in AUDIT.md.
+
+=====================================================================
+D. METADATA, SEO, ACCESSIBILITY
+=====================================================================
+- Title pattern "<Page> | Fortune Aggregates and Sands, Mangaluru". Home: "Fortune Aggregates and Sands | Aggregates & M-Sand in Mangaluru".
+- Meta description includes the tagline, the location and the product types. Open Graph tags with the badge image. Favicon from the badge.
+- JSON-LD LocalBusiness with name, address, telephone and email only. No hours, ratings or geo until confirmed.
+- One h1 per page, logical heading order, alt text on every image, visible focus states (--focus-ring), contrast 4.5:1 for body text, links distinguishable without colour alone, tap targets at least 44px, semantic landmarks (header, nav, main, footer, address).
+
+=====================================================================
+E. DONE WHEN
+=====================================================================
+- AUDIT.md exists and every Fail in it is fixed, with layouts and images unchanged.
+- grep shows zero raw hex values (except the .theme-dark block), zero raw px font sizes, zero font-family values other than the Montserrat and Quicksand variables, and no monospace usage.
+- No removed claim from section B remains anywhere. Every unconfirmed claim is in data/site.ts with a DRAFT or PLACEHOLDER comment.
+- Lint and build pass. Screenshots of each section at 1440x900 and 390x844 saved to /screenshots/after/.
+- Final report: per section, what changed and what still needs the client to confirm.
+
+also doesnot remove contents and images 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-18T11:38:02+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\ACER\Downloads\Fortune Aggregates Design System\readme.md (LANGUAGE_UNSPECIFIED)
+Cursor is on line: 61
+Other open documents:
+- c:\Users\ACER\Downloads\fortuneaggregates\components\sections\ProjectGallery.tsx (LANGUAGE_UNSPECIFIED)
+- c:\Users\ACER\Downloads\fortuneaggregates\components\materials\JobTable.tsx (LANGUAGE_UNSPECIFIED)
+- c:\Users\ACER\Downloads\fortuneaggregates\components\layout\Footer.tsx (LANGUAGE_UNSPECIFIED)
+- c:\Users\ACER\Downloads\fortuneaggregates\data\materials.ts (LANGUAGE_UNSPECIFIED)
+- c:\Users\ACER\Downloads\fortuneaggregates\components\materials\MaterialCircle.tsx (LANGUAGE_UNSPECIFIED)
+</ADDITIONAL_METADATA>

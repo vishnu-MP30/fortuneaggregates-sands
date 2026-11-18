@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "../tokens/colors.css";
+@import "../tokens/typography.css";
+@import "../tokens/spacing.css";
+@import "../tokens/effects.css";
+
+:root {
+  --container-site: 1240px;
+  --tracking-display: 0.02em;
+  --header-h: 76px;
+  --font-display: var(--font-montserrat), "Montserrat", sans-serif;
+  --font-body: var(--font-quicksand), "Quicksand", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Dark moments and green bands override tokens via inheritance */
+.theme-dark {
+  --bg-base: var(--ink-950);
+  --bg-raised: var(--ink-900);
+  --surface: var(--ink-850);
+  --surface-2: var(--ink-800);
+  --border: rgba(232, 214, 164, .14);
+  --border-strong: rgba(232, 214, 164, .28);
+  --text-strong: var(--gold-200);
+  --text-body: var(--warm-200);
+  --text-muted: var(--warm-400);
+  --accent: var(--gold-500);
+  --accent-soft: rgba(200, 151, 31, .14);
+}
+
+/* Custom Design System Utility Classes & Animations */
+
+/* Wordmark & Headings */
+.fas-wordmark-gradient {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Restrained entrance animations (CSS-only with prefers-reduced-motion check) */
+@keyframes fas-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-1 {
+  animation: fas-fade-up var(--dur-slow) var(--ease-out) 0ms forwards;
+}
+
+.animate-hero-2 {
+  animation: fas-fade-up var(--dur-slow) var(--ease-out) 120ms forwards;
+}
+
+.animate-hero-3 {
+  animation: fas-fade-up var(--dur-slow) var(--ease-out) 240ms forwards;
+}
+
+.animate-hero-4 {
+  animation: fas-fade-up var(--dur-slow) var(--ease-out) 360ms forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-hero-1,
+  .animate-hero-2,
+  .animate-hero-3,
+  .animate-hero-4 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Optional StagePanels scroll cover polish (CSS View Timeline) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes panel-cover-dim {
+      to {
+        filter: brightness(0.7);
+      }
+    }
+
+    @keyframes panel-cover-zoom {
+      to {
+        transform: scale(1.04);
+      }
+    }
+
+    .stage-panel-sticky:not(:last-child) {
+      animation: panel-cover-dim linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+
+    .stage-panel-sticky:not(:last-child) .panel-img {
+      animation: panel-cover-zoom linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+  }
+}
