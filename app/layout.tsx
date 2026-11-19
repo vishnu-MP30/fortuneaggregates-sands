@@ -81,7 +81,7 @@ export default function RootLayout({
             __html: `
               (function() {
                 function removeNetlifyBadge() {
-                  var sel = '#netlify-drawer, netlify-drawer, #netlify-drawer-frame, iframe[name="netlify-drawer-frame"], iframe[id*="netlify-drawer"], [data-netlify-deploy-id], [data-netlify-drawer], .netlify-badge, [class*="netlify-badge"]';
+                  var sel = '#netlify-badge, [id*="netlify-badge"], .netlify-badge, [class*="netlify-badge"], #netlify-drawer, netlify-drawer, #netlify-drawer-frame, iframe[name="netlify-drawer-frame"], iframe[id*="netlify-drawer"], [data-netlify-deploy-id], [data-netlify-drawer]';
                   var els = document.querySelectorAll(sel);
                   for (var i = 0; i < els.length; i++) {
                     els[i].remove();
