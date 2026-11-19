@@ -113,3 +113,32 @@ section[id] {
     }
   }
 }
+
+/* =========================================================
+   Hide Netlify Drawer, Preview Badges & Injected Widgets
+   ========================================================= */
+#netlify-drawer,
+netlify-drawer,
+#netlify-drawer-frame,
+iframe[name="netlify-drawer-frame"],
+iframe[id^="netlify-drawer"],
+iframe[src*="netlify"],
+[data-netlify-deploy-id],
+[data-netlify-drawer],
+div[id*="netlify-drawer"],
+div[class*="netlify-drawer"],
+.netlify-badge,
+[class*="netlify-badge"],
+[class*="NetlifyBadge"],
+[data-netlify-badge] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+  z-index: -99999 !important;
+}

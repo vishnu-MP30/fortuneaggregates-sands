@@ -76,6 +76,28 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function removeNetlifyBadge() {
+                  var sel = '#netlify-drawer, netlify-drawer, #netlify-drawer-frame, iframe[name="netlify-drawer-frame"], iframe[id*="netlify-drawer"], [data-netlify-deploy-id], [data-netlify-drawer], .netlify-badge, [class*="netlify-badge"]';
+                  var els = document.querySelectorAll(sel);
+                  for (var i = 0; i < els.length; i++) {
+                    els[i].remove();
+                  }
+                }
+                if (typeof document !== 'undefined') {
+                  document.addEventListener('DOMContentLoaded', removeNetlifyBadge);
+                  if (window.MutationObserver) {
+                    var observer = new MutationObserver(removeNetlifyBadge);
+                    observer.observe(document.documentElement, { childList: true, subtree: true });
+                  }
+                }
+              })();
+            `,
+          }}
+        />
         {children}
       </body>
     </html>
