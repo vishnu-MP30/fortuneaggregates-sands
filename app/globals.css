@@ -117,6 +117,8 @@ section[id] {
 /* =========================================================
    Hide Netlify Drawer, Preview Badges & Injected Widgets
    ========================================================= */
+#nl-badge-frame,
+iframe#nl-badge-frame,
 #netlify-drawer,
 netlify-drawer,
 #netlify-drawer-frame,
