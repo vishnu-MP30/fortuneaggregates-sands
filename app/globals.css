@@ -35,6 +35,19 @@ section[id] {
   --accent-soft: rgba(200, 151, 31, .14);
 }
 
+/* Specific text inversions when dark theme is active */
+[data-theme="dark"] .text-\[var\(--ink-950\)\] {
+  color: var(--text-strong) !important;
+}
+
+[data-theme="dark"] .border-\[var\(--ink-950\)\] {
+  border-color: var(--border-strong) !important;
+}
+
+[data-theme="dark"] .bg-\[var\(--ink-950\)\] {
+  background-color: var(--surface-2) !important;
+}
+
 /* Custom Design System Utility Classes & Animations */
 
 /* Wordmark & Headings */

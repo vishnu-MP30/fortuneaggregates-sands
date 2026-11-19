@@ -82,6 +82,36 @@
 }
 
 /* =========================================================
+   DARK theme — Night Ink primary (#0A0A09), Sand (#E8D6A4), Gold (#C8971F)
+   ========================================================= */
+[data-theme="dark"], .theme-dark {
+  --bg-base:      var(--ink-950);
+  --bg-raised:    var(--ink-900);
+  --surface:      var(--ink-850);
+  --surface-2:    var(--ink-800);
+  --surface-line: var(--ink-700);
+
+  --border:       rgba(232, 214, 164, 0.14);
+  --border-strong:rgba(232, 214, 164, 0.28);
+
+  --text-strong:  var(--gold-200);   /* headlines on dark */
+  --text-body:    var(--warm-200);
+  --text-muted:   var(--warm-400);
+  --text-faint:   var(--warm-500);
+  --text-on-gold: var(--ink-950);
+  --text-on-green:var(--gold-200);
+
+  --accent:        var(--gold-500);
+  --accent-hover:  var(--gold-400);
+  --accent-press:  var(--gold-600);
+  --accent-soft:   rgba(200, 151, 31, 0.14);
+  --accent-2:      var(--green-700);
+  --accent-2-soft: rgba(20, 66, 43, 0.40);
+
+  --focus-ring:   rgba(208, 169, 63, 0.55);
+}
+
+/* =========================================================
    LIGHT theme — for stationery & documents printed on paper.
    Apply with: <body data-theme="light"> or class .theme-light
    ========================================================= */

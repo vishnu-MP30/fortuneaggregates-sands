@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Quicksand } from "next/font/google";
 import "./globals.css";
+import { ThemePreviewToggle } from "@/components/ui/ThemePreviewToggle";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -99,6 +100,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <ThemePreviewToggle />
       </body>
     </html>
   );
