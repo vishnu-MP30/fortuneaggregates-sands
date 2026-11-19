@@ -36,8 +36,8 @@ Fortune Aggregates and Sands is an industrial-grade quarrying, automated washing
 ### Installation
 
 ```bash
-git clone https://github.com/PraveenIIMK/fortuneaggregates.git
-cd fortuneaggregates
+git clone https://github.com/vishnu-MP30/fortuneaggregates-sands.git
+cd fortuneaggregates-sands
 npm install
 ```
 
