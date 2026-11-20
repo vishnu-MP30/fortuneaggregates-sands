@@ -60,31 +60,6 @@ export function MaterialDetail({
       aria-labelledby={`tab-${material.slug}`}
       className="relative w-full rounded-[24px] bg-[var(--ink-950)]/90 backdrop-blur-xl border border-[var(--gold-500)]/35 shadow-[0_24px_60px_rgba(0,0,0,0.85)] p-6 sm:p-8 lg:p-10 overflow-hidden transition-colors duration-[var(--dur-base)]"
     >
-      {/* Top-Right Angular Shade (Dual-band: Gold + Forest Green Accent Ribbon) */}
-      <div className="absolute top-0 right-0 w-28 sm:w-36 h-28 sm:h-36 pointer-events-none overflow-hidden z-20">
-        <svg
-          className="w-full h-full"
-          viewBox="0 0 140 140"
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          <polygon
-            points="50,0 140,0 140,90 90,140 70,140 30,0"
-            fill="var(--green-700)"
-            fillOpacity="0.85"
-          />
-          <line
-            x1="30"
-            y1="0"
-            x2="70"
-            y2="140"
-            stroke="var(--gold-500)"
-            strokeWidth="1.5"
-            strokeOpacity="0.8"
-          />
-        </svg>
-      </div>
-
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         {/* =========================================================
             LEFT COLUMN: Large Circular Image & Concentric Golden Rings

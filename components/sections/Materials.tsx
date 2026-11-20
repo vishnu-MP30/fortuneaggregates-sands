@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { materials, Material } from "@/data/materials";
@@ -109,58 +108,6 @@ export function Materials() {
       id="materials"
       className="relative w-full bg-[var(--ink-950)] border-t border-b border-[var(--border)] py-[var(--space-8)] sm:py-[var(--space-9)] lg:py-[var(--space-10)] overflow-hidden"
     >
-      {/* Background Image: Authentic Quarry Landscape */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image
-          src="/images/job-table-bg.jpg"
-          alt="Fortune Aggregates raw material quarry processing background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        {/* Deep dark overlay to ensure readability */}
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-[var(--ink-950)]/92 via-[var(--ink-950)]/85 to-[var(--ink-950)]/96"
-          aria-hidden="true"
-        />
-      </div>
-
-      {/* Crushed Rock Foreground at Bottom of Section */}
-      <div className="absolute bottom-0 inset-x-0 h-20 sm:h-28 lg:h-36 pointer-events-none z-10 opacity-90">
-        <Image
-          src="/images/aggregate-pile-real.png"
-          alt=""
-          fill
-          className="object-cover object-bottom"
-        />
-      </div>
-
-      {/* Top-Right Angular Shade (Dual-band: Gold + Forest Green Accent Ribbon) */}
-      <div className="absolute top-0 right-0 w-36 sm:w-56 lg:w-72 h-36 sm:h-56 lg:h-72 pointer-events-none overflow-hidden z-20">
-        <svg
-          className="w-full h-full"
-          viewBox="0 0 200 200"
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          <polygon
-            points="90,0 200,0 200,110 110,200 80,200 50,0"
-            fill="var(--green-700)"
-            fillOpacity="0.85"
-          />
-          <line
-            x1="50"
-            y1="0"
-            x2="80"
-            y2="200"
-            stroke="var(--gold-500)"
-            strokeWidth="2"
-            strokeOpacity="0.8"
-          />
-        </svg>
-      </div>
-
       <div className="relative z-10 w-full max-w-[1440px] mr-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
         {/* =========================================================
             1. HEADER BLOCK (Left-Aligned, Matching Reference 1)
