@@ -24,27 +24,25 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
       className="sticky w-full min-h-[calc(100vh-var(--header-h,76px))] flex items-center justify-center bg-[var(--ink-950)] border-t border-[var(--border)] shadow-[var(--shadow-2xl)] overflow-hidden py-10 lg:py-0"
     >
       {/* =========================================================
-          CONSTANT FAR-RIGHT FOREST GREEN CORNER SHADES
-          Every card has the top-right and bottom-right green shades
-          outside the contents, framing the right edge
+          CONSTANT FAR-RIGHT FOREST GREEN CORNER SHADE
+          Sleek, narrow diagonal Forest Green ribbon with gold hairline at top-right
           ========================================================= */}
-      {/* Top-Right Far Corner Shade: Sleek thin diagonal Forest Green ribbon with gold hairline */}
       <div
-        className="absolute top-0 right-0 w-32 sm:w-44 md:w-52 h-44 sm:h-56 md:h-64 pointer-events-none z-0 overflow-hidden"
+        className="absolute top-0 right-0 w-24 sm:w-32 md:w-36 h-36 sm:h-48 md:h-56 pointer-events-none z-0 overflow-hidden"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 160 220" fill="none" className="w-full h-full">
-          {/* Thin Forest Green ribbon */}
+        <svg viewBox="0 0 120 180" fill="none" className="w-full h-full">
+          {/* Narrow Forest Green ribbon */}
           <polygon
-            points="35,0 80,0 160,165 160,220 140,220"
+            points="30,0 60,0 120,135 120,180 110,180"
             fill="url(#cardGreenGradTop)"
           />
           {/* Fine Gold Accent Boundary Line */}
           <line
-            x1="35"
+            x1="30"
             y1="0"
-            x2="140"
-            y2="220"
+            x2="110"
+            y2="180"
             stroke="var(--gold-500)"
             strokeWidth="1.5"
             strokeLinecap="round"
@@ -54,37 +52,6 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
               <stop offset="0%" stopColor="var(--green-600)" />
               <stop offset="50%" stopColor="var(--green-700)" />
               <stop offset="100%" stopColor="var(--green-900)" stopOpacity="0.85" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      {/* Bottom-Right Far Corner Shade: Sleek thin diagonal Forest Green ribbon with gold hairline */}
-      <div
-        className="absolute bottom-0 right-0 w-32 sm:w-44 md:w-52 h-44 sm:h-56 md:h-64 pointer-events-none z-0 overflow-hidden"
-        aria-hidden="true"
-      >
-        <svg viewBox="0 0 160 220" fill="none" className="w-full h-full">
-          {/* Thin Forest Green ribbon */}
-          <polygon
-            points="140,0 160,0 160,55 80,220 35,220"
-            fill="url(#cardGreenGradBottom)"
-          />
-          {/* Fine Gold Accent Boundary Line */}
-          <line
-            x1="140"
-            y1="0"
-            x2="35"
-            y2="220"
-            stroke="var(--gold-500)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient id="cardGreenGradBottom" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="var(--green-900)" stopOpacity="0.85" />
-              <stop offset="50%" stopColor="var(--green-700)" />
-              <stop offset="100%" stopColor="var(--green-600)" />
             </linearGradient>
           </defs>
         </svg>
