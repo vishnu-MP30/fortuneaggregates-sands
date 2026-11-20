@@ -164,8 +164,8 @@ export function AggregateGrabStats() {
                 style={{ height: `${bucketY + 28}px` }}
               >
                 <div style={{ width: "14px", height: "100%", display: "flex", justifyContent: "space-between", margin: "0 auto" }}>
-                  <div style={{ width: "2.5px", height: "100%", backgroundColor: "var(--ink-950)", boxShadow: "0 0 2px rgba(0,0,0,0.4)" }} />
-                  <div style={{ width: "2.5px", height: "100%", backgroundColor: "var(--ink-950)", boxShadow: "0 0 2px rgba(0,0,0,0.4)" }} />
+                  <div className="crane-wire" style={{ width: "2.5px", height: "100%", backgroundColor: "var(--text-strong)", boxShadow: "0 0 2px rgba(0,0,0,0.4)" }} />
+                  <div className="crane-wire" style={{ width: "2.5px", height: "100%", backgroundColor: "var(--text-strong)", boxShadow: "0 0 2px rgba(0,0,0,0.4)" }} />
                 </div>
               </div>
 

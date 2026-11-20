@@ -36,6 +36,10 @@ section[id] {
 }
 
 /* Specific text inversions when dark theme is active */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 [data-theme="dark"] .text-\[var\(--ink-950\)\] {
   color: var(--text-strong) !important;
 }
@@ -46,6 +50,15 @@ section[id] {
 
 [data-theme="dark"] .bg-\[var\(--ink-950\)\] {
   background-color: var(--surface-2) !important;
+}
+
+[data-theme="dark"] header {
+  background-color: rgba(10, 10, 9, 0.92) !important;
+}
+
+[data-theme="dark"] .crane-wire {
+  background-color: var(--gold-400) !important;
+  box-shadow: 0 0 6px rgba(200, 151, 31, 0.4) !important;
 }
 
 /* Custom Design System Utility Classes & Animations */
