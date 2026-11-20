@@ -12,13 +12,13 @@ export function Hero() {
       {/* Background Photo: Cinematic Golden-Hour Quarry Extraction & Plant */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-quarry-golden.jpg"
+          src="/images/golden-hour-quarry-operations.png"
           alt="Fortune Aggregates quarry crushing complex and heavy loader in Mangaluru"
           fill
           priority
           unoptimized
           sizes="100vw"
-          className="object-cover object-center lg:object-[center_right] contrast-[1.06] saturate-[1.12] brightness-[1.02]"
+          className="object-cover object-center lg:object-[center_right]"
         />
 
         {/* Cinematic Gradient Overlay: Deep ink on left for high typography readability, natural warm lighting on right */}
