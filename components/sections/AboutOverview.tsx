@@ -218,25 +218,25 @@ export function AboutOverview() {
             <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center relative">
               {/* Outer Architectural Container with constant forest green geometric corner shades */}
               <div className="relative w-full max-w-[560px] xl:max-w-[580px]">
-                {/* 1. CONSTANT OPPOSITE CORNER ACCENT: Top-Left Forest Green Diagonal Shade & Gold Edge */}
+                {/* 1. CONSTANT OPPOSITE CORNER ACCENT: Top-Left Thin Forest Green Diagonal Ribbon & Gold Edge */}
                 <div
-                  className="absolute -top-10 -left-10 sm:-top-12 sm:-left-12 w-48 sm:w-60 h-64 sm:h-76 pointer-events-none z-0 overflow-visible"
+                  className="absolute -top-6 -left-6 sm:-top-7 sm:-left-7 w-28 sm:w-36 h-36 sm:h-48 pointer-events-none z-0 overflow-visible"
                   aria-hidden="true"
                 >
-                  <svg viewBox="0 0 200 240" fill="none" className="w-full h-full">
-                    {/* Forest Green Gradient Polygon */}
+                  <svg viewBox="0 0 140 180" fill="none" className="w-full h-full">
+                    {/* Thin Forest Green Ribbon */}
                     <polygon
-                      points="65,0 160,0 35,240 0,240 0,60"
+                      points="35,0 75,0 35,180 0,180 0,35"
                       fill="url(#forestGreenGradTop)"
                     />
-                    {/* Crisp Gold Accent Boundary Line */}
+                    {/* Fine Gold Accent Boundary Line */}
                     <line
-                      x1="160"
+                      x1="75"
                       y1="0"
                       x2="35"
-                      y2="240"
+                      y2="180"
                       stroke="var(--gold-500)"
-                      strokeWidth="2.5"
+                      strokeWidth="1.5"
                       strokeLinecap="round"
                     />
                     <defs>
@@ -249,25 +249,25 @@ export function AboutOverview() {
                   </svg>
                 </div>
 
-                {/* 2. CONSTANT OPPOSITE CORNER ACCENT: Bottom-Right Forest Green Diagonal Shade & Gold Edge */}
+                {/* 2. CONSTANT OPPOSITE CORNER ACCENT: Bottom-Right Thin Forest Green Diagonal Ribbon & Gold Edge */}
                 <div
-                  className="absolute -bottom-10 -right-10 sm:-bottom-12 sm:-right-12 w-48 sm:w-60 h-64 sm:h-76 pointer-events-none z-0 overflow-visible"
+                  className="absolute -bottom-6 -right-6 sm:-bottom-7 sm:-right-7 w-28 sm:w-36 h-36 sm:h-48 pointer-events-none z-0 overflow-visible"
                   aria-hidden="true"
                 >
-                  <svg viewBox="0 0 200 240" fill="none" className="w-full h-full">
-                    {/* Forest Green Gradient Polygon */}
+                  <svg viewBox="0 0 140 180" fill="none" className="w-full h-full">
+                    {/* Thin Forest Green Ribbon */}
                     <polygon
-                      points="165,0 200,0 200,240 40,240"
+                      points="105,0 140,0 140,35 65,180 25,180"
                       fill="url(#forestGreenGradBottom)"
                     />
-                    {/* Crisp Gold Accent Boundary Line */}
+                    {/* Fine Gold Accent Boundary Line */}
                     <line
-                      x1="165"
+                      x1="105"
                       y1="0"
-                      x2="40"
-                      y2="240"
+                      x2="25"
+                      y2="180"
                       stroke="var(--gold-500)"
-                      strokeWidth="2.5"
+                      strokeWidth="1.5"
                       strokeLinecap="round"
                     />
                     <defs>

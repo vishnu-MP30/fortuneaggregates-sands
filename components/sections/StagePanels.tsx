@@ -14,58 +14,62 @@ export function StagePanels() {
           Top-Right & Bottom-Right Diagonal Accents with Gold Hairlines
           Positioned on the section background outside the content cards
           ========================================================= */}
-      {/* Top-Right Far Corner Shade */}
+      {/* Top-Right Far Corner Shade: Sleek thin diagonal Forest Green ribbon with gold hairline */}
       <div
-        className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 h-64 sm:h-80 md:h-96 lg:h-[420px] pointer-events-none z-0 overflow-hidden"
+        className="absolute top-0 right-0 w-32 sm:w-44 md:w-52 h-44 sm:h-56 md:h-64 pointer-events-none z-0 overflow-hidden"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 360 420" fill="none" className="w-full h-full">
+        <svg viewBox="0 0 160 220" fill="none" className="w-full h-full">
+          {/* Thin Forest Green ribbon */}
           <polygon
-            points="140,0 360,0 360,420 220,420"
+            points="35,0 80,0 160,165 160,220 140,220"
             fill="url(#stageGreenGradTop)"
           />
+          {/* Fine Gold Accent Boundary Line */}
           <line
-            x1="140"
+            x1="35"
             y1="0"
-            x2="220"
-            y2="420"
+            x2="140"
+            y2="220"
             stroke="var(--gold-500)"
-            strokeWidth="2.5"
+            strokeWidth="1.5"
             strokeLinecap="round"
           />
           <defs>
             <linearGradient id="stageGreenGradTop" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="var(--green-600)" />
-              <stop offset="50%" stopColor="var(--green-700)" />
-              <stop offset="100%" stopColor="var(--green-900)" stopOpacity="0.8" />
+              <stop offset="60%" stopColor="var(--green-700)" />
+              <stop offset="100%" stopColor="var(--green-900)" stopOpacity="0.85" />
             </linearGradient>
           </defs>
         </svg>
       </div>
 
-      {/* Bottom-Right Far Corner Shade */}
+      {/* Bottom-Right Far Corner Shade: Sleek thin diagonal Forest Green ribbon with gold hairline */}
       <div
-        className="absolute bottom-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 h-64 sm:h-80 md:h-96 lg:h-[420px] pointer-events-none z-0 overflow-hidden"
+        className="absolute bottom-0 right-0 w-32 sm:w-44 md:w-52 h-44 sm:h-56 md:h-64 pointer-events-none z-0 overflow-hidden"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 360 420" fill="none" className="w-full h-full">
+        <svg viewBox="0 0 160 220" fill="none" className="w-full h-full">
+          {/* Thin Forest Green ribbon */}
           <polygon
-            points="220,0 360,0 360,420 140,420"
+            points="140,0 160,0 160,55 80,220 35,220"
             fill="url(#stageGreenGradBottom)"
           />
+          {/* Fine Gold Accent Boundary Line */}
           <line
-            x1="220"
+            x1="140"
             y1="0"
-            x2="140"
-            y2="420"
+            x2="35"
+            y2="220"
             stroke="var(--gold-500)"
-            strokeWidth="2.5"
+            strokeWidth="1.5"
             strokeLinecap="round"
           />
           <defs>
             <linearGradient id="stageGreenGradBottom" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="var(--green-900)" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="var(--green-700)" />
+              <stop offset="0%" stopColor="var(--green-900)" stopOpacity="0.85" />
+              <stop offset="40%" stopColor="var(--green-700)" />
               <stop offset="100%" stopColor="var(--green-600)" />
             </linearGradient>
           </defs>

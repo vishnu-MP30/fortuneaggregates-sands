@@ -28,57 +28,61 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
           Every card has the top-right and bottom-right green shades
           outside the contents, framing the right edge
           ========================================================= */}
-      {/* Top-Right Far Corner Shade */}
+      {/* Top-Right Far Corner Shade: Sleek thin diagonal Forest Green ribbon with gold hairline */}
       <div
-        className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 h-64 sm:h-80 md:h-96 lg:h-[420px] pointer-events-none z-0 overflow-hidden"
+        className="absolute top-0 right-0 w-32 sm:w-44 md:w-52 h-44 sm:h-56 md:h-64 pointer-events-none z-0 overflow-hidden"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 360 420" fill="none" className="w-full h-full">
+        <svg viewBox="0 0 160 220" fill="none" className="w-full h-full">
+          {/* Thin Forest Green ribbon */}
           <polygon
-            points="140,0 360,0 360,420 220,420"
+            points="35,0 80,0 160,165 160,220 140,220"
             fill="url(#cardGreenGradTop)"
           />
+          {/* Fine Gold Accent Boundary Line */}
           <line
-            x1="140"
+            x1="35"
             y1="0"
-            x2="220"
-            y2="420"
+            x2="140"
+            y2="220"
             stroke="var(--gold-500)"
-            strokeWidth="2.5"
+            strokeWidth="1.5"
             strokeLinecap="round"
           />
           <defs>
             <linearGradient id="cardGreenGradTop" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="var(--green-600)" />
               <stop offset="50%" stopColor="var(--green-700)" />
-              <stop offset="100%" stopColor="var(--green-900)" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="var(--green-900)" stopOpacity="0.85" />
             </linearGradient>
           </defs>
         </svg>
       </div>
 
-      {/* Bottom-Right Far Corner Shade */}
+      {/* Bottom-Right Far Corner Shade: Sleek thin diagonal Forest Green ribbon with gold hairline */}
       <div
-        className="absolute bottom-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 h-64 sm:h-80 md:h-96 lg:h-[420px] pointer-events-none z-0 overflow-hidden"
+        className="absolute bottom-0 right-0 w-32 sm:w-44 md:w-52 h-44 sm:h-56 md:h-64 pointer-events-none z-0 overflow-hidden"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 360 420" fill="none" className="w-full h-full">
+        <svg viewBox="0 0 160 220" fill="none" className="w-full h-full">
+          {/* Thin Forest Green ribbon */}
           <polygon
-            points="220,0 360,0 360,420 140,420"
+            points="140,0 160,0 160,55 80,220 35,220"
             fill="url(#cardGreenGradBottom)"
           />
+          {/* Fine Gold Accent Boundary Line */}
           <line
-            x1="220"
+            x1="140"
             y1="0"
-            x2="140"
-            y2="420"
+            x2="35"
+            y2="220"
             stroke="var(--gold-500)"
-            strokeWidth="2.5"
+            strokeWidth="1.5"
             strokeLinecap="round"
           />
           <defs>
             <linearGradient id="cardGreenGradBottom" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="var(--green-900)" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="var(--green-900)" stopOpacity="0.85" />
               <stop offset="50%" stopColor="var(--green-700)" />
               <stop offset="100%" stopColor="var(--green-600)" />
             </linearGradient>
@@ -106,23 +110,23 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
               ========================================================= */}
           <div className="lg:col-span-5 flex justify-center lg:px-4 xl:px-6">
             <div className="relative w-full max-w-[380px] sm:max-w-[420px] lg:max-w-[450px]">
-              {/* Top-Left Diagonal Forest Green Corner Tab */}
+              {/* Top-Left Diagonal Forest Green Corner Tab: Reduced to thin non-crowded accent */}
               <div
-                className="absolute -top-3.5 -left-3.5 w-16 sm:w-18 h-16 sm:h-18 pointer-events-none z-20 overflow-visible"
+                className="absolute -top-2 -left-2 w-9 h-9 sm:w-10 sm:h-10 pointer-events-none z-20 overflow-visible"
                 aria-hidden="true"
               >
-                <svg viewBox="0 0 72 72" fill="none" className="w-full h-full">
+                <svg viewBox="0 0 36 36" fill="none" className="w-full h-full">
                   <polygon
-                    points="0,22 0,72 22,72 72,22 72,0 22,0"
+                    points="0,8 0,26 26,0 8,0"
                     fill="url(#panelGreenCornerTop)"
                   />
                   <line
                     x1="0"
-                    y1="72"
-                    x2="72"
+                    y1="26"
+                    x2="26"
                     y2="0"
                     stroke="var(--gold-500)"
-                    strokeWidth="2.5"
+                    strokeWidth="1.5"
                   />
                   <defs>
                     <linearGradient id="panelGreenCornerTop" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -133,23 +137,23 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
                 </svg>
               </div>
 
-              {/* Bottom-Right Diagonal Forest Green Corner Tab */}
+              {/* Bottom-Right Diagonal Forest Green Corner Tab: Reduced to thin non-crowded accent */}
               <div
-                className="absolute -bottom-3.5 -right-3.5 w-16 sm:w-18 h-16 sm:h-18 pointer-events-none z-20 overflow-visible"
+                className="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 pointer-events-none z-20 overflow-visible"
                 aria-hidden="true"
               >
-                <svg viewBox="0 0 72 72" fill="none" className="w-full h-full">
+                <svg viewBox="0 0 36 36" fill="none" className="w-full h-full">
                   <polygon
-                    points="0,72 50,72 72,50 72,0 50,0 0,50"
+                    points="10,36 28,36 36,28 36,10"
                     fill="url(#panelGreenCornerBottom)"
                   />
                   <line
-                    x1="0"
-                    y1="72"
-                    x2="72"
-                    y2="0"
+                    x1="10"
+                    y1="36"
+                    x2="36"
+                    y2="10"
                     stroke="var(--gold-500)"
-                    strokeWidth="2.5"
+                    strokeWidth="1.5"
                   />
                   <defs>
                     <linearGradient id="panelGreenCornerBottom" x1="0%" y1="0%" x2="100%" y2="100%">
