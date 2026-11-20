@@ -12,13 +12,13 @@ export function Hero() {
       {/* Background Photo: Cinematic Golden-Hour Quarry Extraction & Plant */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/golden-hour-quarry-operations.png"
+          src="/images/hero-quarry-golden.jpg"
           alt="Fortune Aggregates quarry crushing complex and heavy loader in Mangaluru"
           fill
           priority
           unoptimized
           sizes="100vw"
-          className="object-cover object-center lg:object-[center_right]"
+          className="object-cover object-center lg:object-[center_right] contrast-[1.06] saturate-[1.12] brightness-[1.02]"
         />
 
         {/* Cinematic Gradient Overlay: Deep ink on left for high typography readability, natural warm lighting on right */}
@@ -27,15 +27,15 @@ export function Hero() {
           style={{
             backgroundImage: `
               linear-gradient(to right, 
-                color-mix(in srgb, var(--ink-950) 92%, transparent) 0%, 
-                color-mix(in srgb, var(--ink-950) 78%, transparent) 42%, 
+                color-mix(in srgb, var(--ink-950) 94%, transparent) 0%, 
+                color-mix(in srgb, var(--ink-950) 82%, transparent) 40%, 
                 color-mix(in srgb, var(--ink-950) 25%, transparent) 68%, 
                 transparent 88%
               ),
               linear-gradient(to top, 
-                color-mix(in srgb, var(--ink-950) 92%, transparent) 0%, 
-                color-mix(in srgb, var(--ink-950) 40%, transparent) 22%, 
-                transparent 40%
+                color-mix(in srgb, var(--ink-950) 94%, transparent) 0%, 
+                color-mix(in srgb, var(--ink-950) 45%, transparent) 24%, 
+                transparent 42%
               )
             `,
           }}
@@ -47,9 +47,9 @@ export function Hero() {
       <div className="relative z-20 w-full max-w-[1440px] mr-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)] pt-[var(--space-8)] sm:pt-[var(--space-9)] lg:pt-[var(--space-10)] flex flex-col justify-center min-w-0">
         <div className="max-w-[720px] flex flex-col min-w-0">
           {/* Eyebrow Chip */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[var(--radius-xs)] bg-[var(--accent-soft)] border border-[var(--gold-500)]/30 text-[var(--gold-200)] mb-4 w-fit">
-            <span className="w-2 h-2 rounded-full bg-[var(--gold-500)] animate-pulse" aria-hidden="true" />
-            <span className="font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-xs)] uppercase tracking-[var(--tracking-caps)]">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-xs)] bg-[var(--surface-2)]/80 backdrop-blur-sm border border-[var(--gold-500)]/40 text-[var(--paper)] mb-4 w-fit shadow-[var(--shadow-xs)]">
+            <span className="w-2 h-2 rounded-full bg-[var(--gold-500)] animate-pulse shrink-0" aria-hidden="true" />
+            <span className="font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-xs)] uppercase tracking-[var(--tracking-caps)] text-[var(--paper)]">
               {hero.eyebrow}
             </span>
           </div>
@@ -92,20 +92,20 @@ export function Hero() {
 
       {/* Realistic Metrics Strip across Hero Bottom */}
       <div className="relative z-20 w-full max-w-[1440px] mr-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)] pb-[var(--space-6)] sm:pb-[var(--space-7)] pt-[var(--space-6)]">
-        <div className="max-w-[1180px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[var(--space-4)] lg:gap-0 lg:divide-x lg:divide-[var(--border)] bg-[var(--ink-950)]/75 backdrop-blur-md border border-[var(--border)] rounded-[var(--radius-lg)] p-[var(--space-4)] sm:p-[var(--space-5)] shadow-[var(--shadow-lg)]">
+        <div className="max-w-[1180px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[var(--space-4)] lg:gap-0 lg:divide-x lg:divide-[var(--border-strong)] bg-[var(--ink-950)]/85 backdrop-blur-md border border-[var(--border-strong)] rounded-[var(--radius-lg)] p-[var(--space-4)] sm:p-[var(--space-5)] shadow-[var(--shadow-xl)]">
           {/* Metric 1: IS 383 Graded */}
           <div className="flex items-start gap-[var(--space-3)] lg:px-[var(--space-4)]">
-            <div className="p-2 rounded-[var(--radius-sm)] bg-[var(--accent-soft)] text-[var(--gold-500)] shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-[var(--radius-sm)] bg-[var(--surface-2)] text-[var(--gold-400)] shrink-0 mt-0.5 border border-[var(--gold-500)]/25 shadow-sm">
               <ShieldCheck className="w-5 h-5" strokeWidth={2} />
             </div>
             <div>
-              <span className="block font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--paper)] tracking-wide uppercase">
+              <span className="block font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--paper)] tracking-wide uppercase">
                 IS 383 Graded
               </span>
-              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--gold-400)] mt-0.5">
+              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--gold-400)] tracking-wider uppercase mt-0.5">
                 Lab-Tested Uniformity
               </span>
-              <span className="block font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] text-[var(--warm-300)] mt-1 leading-[var(--lh-normal)]">
+              <span className="block font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] text-[var(--warm-200)] mt-1 leading-[var(--lh-normal)]">
                 Every batch certified for strict sieve grading &amp; zero silt.
               </span>
             </div>
@@ -113,17 +113,17 @@ export function Hero() {
 
           {/* Metric 2: In-House Processing */}
           <div className="flex items-start gap-[var(--space-3)] lg:px-[var(--space-4)]">
-            <div className="p-2 rounded-[var(--radius-sm)] bg-[var(--accent-soft)] text-[var(--gold-500)] shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-[var(--radius-sm)] bg-[var(--surface-2)] text-[var(--gold-400)] shrink-0 mt-0.5 border border-[var(--gold-500)]/25 shadow-sm">
               <Layers className="w-5 h-5" strokeWidth={2} />
             </div>
             <div>
-              <span className="block font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--paper)] tracking-wide uppercase">
+              <span className="block font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--paper)] tracking-wide uppercase">
                 In-House Processing
               </span>
-              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--gold-400)] mt-0.5">
+              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--gold-400)] tracking-wider uppercase mt-0.5">
                 Yedapadavu Quarry Base
               </span>
-              <span className="block font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] text-[var(--warm-300)] mt-1 leading-[var(--lh-normal)]">
+              <span className="block font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] text-[var(--warm-200)] mt-1 leading-[var(--lh-normal)]">
                 Primary blasting, 3-stage cone crushing &amp; automated washing.
               </span>
             </div>
@@ -131,17 +131,17 @@ export function Hero() {
 
           {/* Metric 3: Reliable Supply */}
           <div className="flex items-start gap-[var(--space-3)] lg:px-[var(--space-4)]">
-            <div className="p-2 rounded-[var(--radius-sm)] bg-[var(--accent-soft)] text-[var(--gold-500)] shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-[var(--radius-sm)] bg-[var(--surface-2)] text-[var(--gold-400)] shrink-0 mt-0.5 border border-[var(--gold-500)]/25 shadow-sm">
               <Scale className="w-5 h-5" strokeWidth={2} />
             </div>
             <div>
-              <span className="block font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--paper)] tracking-wide uppercase">
+              <span className="block font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--paper)] tracking-wide uppercase">
                 Reliable Supply
               </span>
-              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--gold-400)] mt-0.5">
+              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--gold-400)] tracking-wider uppercase mt-0.5">
                 Scalable Bulk Tonnage
               </span>
-              <span className="block font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] text-[var(--warm-300)] mt-1 leading-[var(--lh-normal)]">
+              <span className="block font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] text-[var(--warm-200)] mt-1 leading-[var(--lh-normal)]">
                 Continuous daily feed capacity for high-volume RMC batching.
               </span>
             </div>
@@ -149,17 +149,17 @@ export function Hero() {
 
           {/* Metric 4: Quick Dispatch */}
           <div className="flex items-start gap-[var(--space-3)] lg:px-[var(--space-4)]">
-            <div className="p-2 rounded-[var(--radius-sm)] bg-[var(--accent-soft)] text-[var(--gold-500)] shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-[var(--radius-sm)] bg-[var(--surface-2)] text-[var(--gold-400)] shrink-0 mt-0.5 border border-[var(--gold-500)]/25 shadow-sm">
               <Truck className="w-5 h-5" strokeWidth={2} />
             </div>
             <div>
-              <span className="block font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--paper)] tracking-wide uppercase">
+              <span className="block font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--paper)] tracking-wide uppercase">
                 Quick Dispatch
               </span>
-              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--gold-400)] mt-0.5">
+              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--gold-400)] tracking-wider uppercase mt-0.5">
                 GPS Fleet &amp; Weighbridge
               </span>
-              <span className="block font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] text-[var(--warm-300)] mt-1 leading-[var(--lh-normal)]">
+              <span className="block font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] text-[var(--warm-200)] mt-1 leading-[var(--lh-normal)]">
                 Calibrated weighbridge slips with immediate regional transport.
               </span>
             </div>

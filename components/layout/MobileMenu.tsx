@@ -34,11 +34,11 @@ export function MobileMenu() {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="p-2.5 text-[var(--ink-950)] rounded-[var(--radius-xs)] border border-[var(--border-strong)] bg-[var(--surface)] hover:bg-[var(--surface-2)] transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring)] cursor-pointer flex items-center justify-center min-h-[44px] min-w-[44px] shadow-[var(--shadow-xs)]"
+        className="p-2.5 text-[var(--paper)] rounded-[var(--radius-xs)] border border-[var(--border-strong)] bg-[var(--surface)] hover:bg-[var(--surface-2)] transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--focus-ring)] cursor-pointer flex items-center justify-center min-h-[44px] min-w-[44px] shadow-[var(--shadow-xs)]"
         aria-label="Toggle navigation menu"
         aria-expanded={isOpen}
       >
-        <Menu strokeWidth={2.2} className="w-5 h-5 text-[var(--ink-950)]" />
+        <Menu strokeWidth={2.2} className="w-5 h-5 text-[var(--paper)]" />
       </button>
 
       {/* Full-Height Drawer Portalled to document.body (Highest z-index, covers everything cleanly) */}
@@ -75,7 +75,7 @@ export function MobileMenu() {
                     <span className="font-[family-name:var(--font-display)] font-extrabold text-base tracking-[var(--tracking-wordmark)] uppercase fas-wordmark-gradient leading-none">
                       {siteConfig.wordmark}
                     </span>
-                    <span className="mt-1 font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-2xs)] tracking-[var(--tracking-wide)] text-[var(--text-strong)] uppercase leading-none">
+                    <span className="mt-1 font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-2xs)] tracking-[var(--tracking-wide)] text-[var(--paper)] uppercase leading-none">
                       {siteConfig.wordmarkSub}
                     </span>
                   </div>
@@ -85,10 +85,10 @@ export function MobileMenu() {
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-[var(--radius-xs)] border border-[var(--border-strong)] bg-[var(--surface)] hover:bg-[var(--surface-2)] text-[var(--ink-950)] transition-colors cursor-pointer flex items-center justify-center shadow-xs"
+                  className="p-2 rounded-[var(--radius-xs)] border border-[var(--border-strong)] bg-[var(--surface)] hover:bg-[var(--surface-2)] text-[var(--paper)] transition-colors cursor-pointer flex items-center justify-center shadow-xs"
                   aria-label="Close navigation menu"
                 >
-                  <X strokeWidth={2.5} className="w-5 h-5 text-[var(--ink-950)]" />
+                  <X strokeWidth={2.5} className="w-5 h-5 text-[var(--paper)]" />
                 </button>
               </div>
 
@@ -99,7 +99,7 @@ export function MobileMenu() {
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="py-3 px-3.5 font-[family-name:var(--font-display)] font-bold text-sm tracking-[var(--tracking-caps)] uppercase text-[var(--ink-950)] hover:text-[var(--gold-600)] hover:bg-[var(--surface-2)] rounded-[var(--radius-xs)] border-b border-[var(--border)] transition-colors cursor-pointer"
+                    className="py-3 px-3.5 font-[family-name:var(--font-display)] font-bold text-sm tracking-[var(--tracking-caps)] uppercase text-[var(--paper)] hover:text-[var(--gold-400)] hover:bg-[var(--surface-2)] rounded-[var(--radius-xs)] border-b border-[var(--border)] transition-colors cursor-pointer"
                   >
                     {item.label}
                   </Link>

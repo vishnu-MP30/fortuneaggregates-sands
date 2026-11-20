@@ -23,7 +23,7 @@ export function Header() {
             <span className="font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-lg)] sm:text-[length:var(--fs-xl)] tracking-[var(--tracking-wordmark)] uppercase fas-wordmark-gradient leading-none">
               {siteConfig.wordmark}
             </span>
-            <span className="mt-1 font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-2xs)] tracking-[var(--tracking-wide)] text-[var(--text-strong)] uppercase leading-none">
+            <span className="mt-1 font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-2xs)] tracking-[var(--tracking-wide)] text-[var(--paper)] uppercase leading-none">
               {siteConfig.wordmarkSub}
             </span>
           </div>
@@ -39,7 +39,7 @@ export function Header() {
                 href={item.href}
                 className={`relative py-[var(--space-2)] font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-xs)] tracking-[var(--tracking-caps)] uppercase transition-colors duration-[var(--dur-base)] ease-[var(--ease-out)] ${isFirst
                   ? "text-[var(--accent)] border-b-2 border-[var(--accent)]"
-                  : "text-[var(--text-strong)] hover:text-[var(--accent)] border-b-2 border-transparent hover:border-[var(--accent)]"
+                  : "text-[var(--paper)] hover:text-[var(--accent)] border-b-2 border-transparent hover:border-[var(--accent)]"
                   }`}
               >
                 {item.label}
