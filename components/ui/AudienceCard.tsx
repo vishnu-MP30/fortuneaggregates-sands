@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import {
   ConsultantsIcon,
   ArchitectureIcon,
@@ -26,77 +26,74 @@ export interface AudienceCardProps {
 }
 
 export function AudienceCard({ card, index, onExplore }: AudienceCardProps) {
-  // Render the appropriate custom SVG outline icon in warm Sand Gold
+  // Render the appropriate custom SVG outline icon in crisp white
   const renderIcon = () => {
     const iconType = card.icon || (index === 0 ? "consultants" : index === 1 ? "architecture" : "management");
-    const iconClass = "w-14 h-14 text-[var(--gold-200)] transition-transform duration-300 group-hover:scale-105";
+    const iconClass = "w-14 h-14 text-[var(--paper)] transition-transform duration-300 group-hover:scale-105";
 
     switch (iconType) {
       case "consultants":
-        return <ConsultantsIcon className={iconClass} color="var(--gold-200)" />;
+        return <ConsultantsIcon className={iconClass} color="var(--paper)" />;
       case "architecture":
-        return <ArchitectureIcon className={iconClass} color="var(--gold-200)" />;
+        return <ArchitectureIcon className={iconClass} color="var(--paper)" />;
       case "management":
-        return <ManagementIcon className={iconClass} color="var(--gold-200)" />;
+        return <ManagementIcon className={iconClass} color="var(--paper)" />;
       case "infra":
-        return <InfraIcon className={iconClass} color="var(--gold-200)" />;
+        return <InfraIcon className={iconClass} color="var(--paper)" />;
       case "dealers":
-        return <DealersIcon className={iconClass} color="var(--gold-200)" />;
+        return <DealersIcon className={iconClass} color="var(--paper)" />;
       default:
-        return <ConsultantsIcon className={iconClass} color="var(--gold-200)" />;
+        return <ConsultantsIcon className={iconClass} color="var(--paper)" />;
     }
   };
 
   return (
     <div
-      className="group relative flex flex-col justify-between h-full p-7 sm:p-8 lg:p-9 rounded-[var(--radius-lg)] border border-[var(--gold-500)]/40 shadow-[var(--shadow-md)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(200,151,31,0.28)] hover:border-[var(--gold-400)] overflow-hidden before:absolute before:top-0 before:inset-x-0 before:h-1 before:bg-[var(--gold-400)]"
+      className="group relative flex flex-col justify-between h-full p-7 sm:p-8 rounded-[20px] border border-white/20 shadow-[var(--shadow-xl)] transition-all duration-300 hover:shadow-[0_20px_48px_rgba(200,151,31,0.35)] hover:scale-[1.01] overflow-hidden"
       style={{
-        background: "linear-gradient(155deg, var(--gold-700) 0%, var(--gold-800) 45%, var(--gold-900) 100%)",
+        background: "linear-gradient(145deg, var(--gold-500) 0%, var(--gold-600) 45%, var(--gold-700) 100%)",
       }}
     >
+      {/* Top-Right Diagonal Glass Highlight / Sheen */}
+      <div
+        className="absolute top-0 right-0 w-36 sm:w-44 h-36 sm:h-44 bg-gradient-to-bl from-white/30 via-white/10 to-transparent pointer-events-none rounded-tr-[20px] [clip-path:polygon(100%_0,0_0,100%_100%)]"
+        aria-hidden="true"
+      />
+
       {/* Top Section: Icon & Header */}
-      <div>
-        {/* Outline SVG icon in Luminous Gold */}
-        <div className="mb-6 inline-flex items-center justify-center">
+      <div className="relative z-10">
+        {/* Outline SVG icon in Crisp White */}
+        <div className="mb-5 inline-flex items-center justify-center">
           {renderIcon()}
         </div>
 
-        {/* Card Title & Sector Number */}
-        <div className="space-y-1.5">
-          {card.number && (
-            <span
-              className="block font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-xs)] tracking-[var(--tracking-caps)] uppercase"
-              style={{ color: "var(--gold-200)" }}
-            >
-              Sector {card.number}
-            </span>
-          )}
-          <h3
-            className="font-[family-name:var(--font-display)] font-bold text-xl sm:text-2xl tracking-tight leading-[1.25]"
-            style={{ color: "var(--paper)" }}
-          >
-            {card.title}
-          </h3>
+        {/* Sector Eyebrow with horizontal bar */}
+        <div className="flex items-center gap-2 mb-2">
+          <span className="font-[family-name:var(--font-display)] font-bold text-xs uppercase tracking-wider text-[var(--paper)]">
+            SECTOR {card.number}
+          </span>
+          <span className="w-6 h-[2px] bg-white/70 rounded-full inline-block" aria-hidden="true" />
         </div>
 
-        {/* Body Text in Warm Paper Cream for High Readability */}
-        <p
-          className="mt-4 font-[family-name:var(--font-body)] font-medium text-[length:var(--fs-sm)] leading-relaxed"
-          style={{ color: "var(--paper)" }}
-        >
+        {/* Card Title in Bold White */}
+        <h3 className="font-[family-name:var(--font-display)] font-extrabold text-2xl text-[var(--paper)] tracking-tight leading-tight">
+          {card.title}
+        </h3>
+
+        {/* Body Text in High-Contrast White */}
+        <p className="mt-3.5 font-[family-name:var(--font-body)] font-medium text-xs sm:text-sm text-[var(--paper)] leading-relaxed">
           {card.body}
         </p>
 
         {/* Key Aggregate Highlights / Specs */}
         {card.specs && card.specs.length > 0 && (
-          <ul className="mt-5 space-y-2 pt-4 border-t border-[var(--gold-500)]/30">
+          <ul className="mt-5 space-y-2.5 pt-4 border-t border-white/20">
             {card.specs.map((spec, i) => (
               <li
                 key={i}
-                className="flex items-center gap-2.5 font-[family-name:var(--font-body)] text-[length:var(--fs-xs)] font-medium"
-                style={{ color: "var(--paper)" }}
+                className="flex items-center gap-2.5 font-[family-name:var(--font-body)] text-xs font-semibold text-[var(--paper)]"
               >
-                <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: "var(--gold-300)" }} />
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-[var(--paper)]" />
                 <span>{spec}</span>
               </li>
             ))}
@@ -105,15 +102,15 @@ export function AudienceCard({ card, index, onExplore }: AudienceCardProps) {
       </div>
 
       {/* Bottom Section: Explore More Button */}
-      <div className="mt-8 pt-2">
+      <div className="relative z-10 mt-7 pt-2">
         <button
           type="button"
           onClick={() => onExplore?.(card)}
-          className="inline-flex items-center justify-between gap-3 px-5 py-2.5 rounded-[var(--radius-pill)] bg-[var(--gold-500)] hover:bg-[var(--gold-400)] text-[var(--ink-950)] font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-xs)] uppercase tracking-[var(--tracking-caps)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-glow)] transition-all min-h-[44px] cursor-pointer"
+          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[var(--gold-200)] hover:bg-[var(--paper)] text-[var(--ink-950)] font-[family-name:var(--font-display)] font-extrabold text-xs uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
           aria-label={`Explore more about ${card.title}`}
         >
-          <span>Explore More</span>
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <span>EXPLORE MORE</span>
+          <ArrowRight className="w-4 h-4 text-[var(--ink-950)]" strokeWidth={2.5} />
         </button>
       </div>
     </div>

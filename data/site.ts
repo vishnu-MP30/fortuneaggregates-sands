@@ -308,8 +308,8 @@ export const siteConfig: SiteConfig = {
         title: "Construction consultants & builders",
         subtitle: "Residential & Commercial Foundations",
         description:
-          "Given the increasing structural complexity of modern construction, our graded blue metal ensures uniform load-bearing strength and zero deflection on every pour.",
-        specs: ["IS 383:2016 Compliant // DRAFT", "20mm & 10mm Graded Stones", "Washed Manufactured Sand (M-Sand)"],
+          "Count on consistently structured aggregates of modern construction, our graded blue metal ensures uniform load-bearing strength and zero deviation on every project.",
+        specs: ["IS 383:2016 Compliant / QCWT", "20mm & 10mm Graded Stones", "Washed M-Sand (Manufactured Sand)"],
         icon: "consultants",
       },
       {
@@ -318,8 +318,8 @@ export const siteConfig: SiteConfig = {
         title: "Architecture & civil engineering",
         subtitle: "High-Rise, Bridges & Heavy Infra",
         description:
-          "Architecture demands uncompromising material integrity. We supply precision-graded aggregates and stone dust engineered to withstand heavy seismic and dynamic stresses.",
-        specs: ["High Compressive Strength", "<15% Flakiness & Elongation", "Lab Test Reports // PLACEHOLDER"],
+          "Architecture demands uncompromising material integrity. We supply precision-graded aggregates and stone dust, engineered to withstand heavy structures and dynamic stresses.",
+        specs: ["High Compressive Strength", "Rich Fineness & Grading", "Lab Test Reports / PLC-Validated"],
         icon: "architecture",
       },
       {
@@ -328,8 +328,8 @@ export const siteConfig: SiteConfig = {
         title: "Construction management & RMC",
         subtitle: "Batching Plants & Bulk Contractors",
         description:
-          "Professional batching relies on consistent particle distribution. Our automated washing and screening guarantees repeatable mix designs without cement waste.",
-        specs: ["Automated Double Washing", "Electronic Weighbridge Slips", "Dedicated Multi-Axle Fleet"],
+          "Pre-ordered batching relies on consistent particle distribution. Our automated washing and screening guarantees repeatable mix designs without cement waste.",
+        specs: ["Automated Double Washing", "Electronic Weighbridge Slip", "Dedicated Multi-Scale Fleet"],
         icon: "management",
       },
     ],
