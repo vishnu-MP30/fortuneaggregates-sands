@@ -168,8 +168,8 @@ export function Hero() {
       </div>
 
       {/* Bottom strip: STRENGTH YOU CAN BUILD ON */}
-      <div className="relative z-20 w-full py-[var(--space-3)] border-t border-[var(--border)] text-center bg-[var(--ink-950)]/90 backdrop-blur-xs">
-        <span className="font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-xs)] uppercase tracking-[var(--tracking-caps)] text-[var(--gold-300)]">
+      <div className="relative z-20 w-full py-4 sm:py-5 border-t border-[var(--border)] text-center bg-[var(--ink-950)]/90 backdrop-blur-xs">
+        <span className="font-[family-name:var(--font-display)] font-extrabold text-sm sm:text-base lg:text-lg uppercase tracking-[0.22em] text-[var(--gold-400)]">
           {hero.stripText || "STRENGTH YOU CAN BUILD ON"}
         </span>
       </div>

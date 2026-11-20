@@ -219,15 +219,15 @@ export const siteConfig: SiteConfig = {
     approach: {
       title: "APPROACH",
       description:
-        "A quality-first crushing process that integrates every stage of quarry extraction into a certified system designed for precision grading, zero silt, and unyielding strength.",
-      ctaLabel: "Learn more",
+        "A quality-first crushing process that integrates every stage of quarry operations into a unified system designed for consistent grading, zero silt, and unyielding strength.",
+      ctaLabel: "LEARN MORE",
       ctaHref: "#process",
     },
     company: {
       title: "CAPABILITY",
       description:
-        "Built around transparency and dependable dispatch, pairing in-house quarrying with certified laboratory testing to deliver audit-ready loads with confidence and clarity.",
-      ctaLabel: "Learn more",
+        "Built around high-capacity and dependable dispatch, pairing in-house quarrying with certified weighbridge loading to deliver bulk-ready loads with confidence and on time.",
+      ctaLabel: "LEARN MORE",
       ctaHref: "#services",
     },
     paragraphs: [
@@ -250,9 +250,9 @@ export const siteConfig: SiteConfig = {
       "Lab-tested crushing value",
       "Compliant mining licences",
     ],
-    image: "/images/panel-quarry.jpg", // High-res natural quarry rock extraction shot
+    image: "/images/dusty-aggregate-plant-sunrise.png",
     imageAlt:
-      "Natural basalt quarry rock extraction and heavy excavator loading stone at Yedapadavu facility",
+      "Fortune Aggregates integrated crushing plant and conveyor dispatch in Mangaluru",
     badgeText: "STRENGTH YOU CAN BUILD ON · FORTUNE AGGREGATES AND SANDS · ",
     coverageTitle: "COASTAL KARNATAKA DIRECT DISPATCH",
     coverageSub: "Mangaluru · Udupi · Bantwal · Moodbidri",
