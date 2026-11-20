@@ -91,11 +91,11 @@ export function ProjectGallery() {
     >
       <div className="relative z-10 w-full max-w-[1440px] mr-auto px-[var(--space-4)] sm:px-[var(--space-6)] lg:px-[var(--space-8)]">
         {/* =========================================================
-            TOP SECTION HEADER: Justified 2-Column Grid (Title Left, Description Right-Aligned)
+            TOP SECTION HEADER: Left-Aligned Eyebrow, 2-Line Headline & Short Subtitle
             ========================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 sm:pb-16 lg:pb-20 border-b border-[var(--gold-500)]/20 items-end">
-          {/* Left Column (8 cols): Tag pill + 2-Line Headline */}
-          <div className="lg:col-span-8 flex flex-col items-start pr-0 lg:pr-4">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-12 sm:pb-16 lg:pb-20 border-b border-[var(--gold-500)]/20">
+          <div className="flex flex-col items-start max-w-4xl">
+            {/* Tag Pill */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[var(--ink-950)]/80 border border-[var(--gold-500)]/40 text-[var(--gold-400)] mb-4 shadow-[0_0_12px_rgba(200,151,31,0.15)]">
               <span className="w-3.5 h-1.5 rounded-[1px] bg-[var(--gold-500)] shrink-0" aria-hidden="true" />
               <span className="font-[family-name:var(--font-display)] font-bold text-xs tracking-wider uppercase">
@@ -103,19 +103,24 @@ export function ProjectGallery() {
               </span>
             </div>
 
+            {/* 2-Line Headline */}
             <h2 className="font-[family-name:var(--font-display)] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[length:var(--fs-3xl)] xl:text-5xl leading-[1.12] text-[var(--paper)] tracking-tight">
               <span className="block sm:whitespace-nowrap">Precision crushing, rigid schedules</span>
               <span className="block sm:whitespace-nowrap text-[var(--gold-400)] fas-wordmark-gradient">
                 and zero delivery defaults
               </span>
             </h2>
+
+            {/* Reduced Short Subtitle Below Title on Left Side */}
+            <p className="mt-4 font-[family-name:var(--font-body)] font-medium text-sm sm:text-base lg:text-lg text-[var(--warm-100)] leading-relaxed max-w-2xl">
+              Turnkey quarrying, automated washing, and precision screening engineered to withstand high-demand industrial operations and severe structural loads.
+            </p>
           </div>
 
-          {/* Right Column (4 cols): Right-aligned & Justified Paragraph */}
-          <div className="lg:col-span-4 flex flex-col justify-end lg:items-end text-left sm:text-right lg:text-right pl-0">
-            <p className="font-[family-name:var(--font-body)] font-medium text-sm sm:text-base text-[var(--warm-100)] leading-relaxed max-w-[380px] text-right">
-              Turnkey aggregate quarrying, automated washing, and multi-deck screening engineered to withstand high-demand industrial operations, heavy axle traffic, and severe structural loads.
-            </p>
+          {/* Right Side Pill Badge */}
+          <div className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ink-900)] border border-[var(--gold-500)]/30 text-[var(--gold-300)] text-xs font-[family-name:var(--font-display)] font-bold tracking-wider uppercase shrink-0 self-end mb-2">
+            <span className="w-2 h-2 rounded-full bg-[var(--gold-400)] animate-pulse" />
+            <span>5 Key Sectors Served</span>
           </div>
         </div>
 
