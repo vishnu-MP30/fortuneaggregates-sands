@@ -23,61 +23,34 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
       }}
       className="sticky w-full min-h-[calc(100vh-var(--header-h,76px))] flex items-center justify-center bg-[var(--ink-950)] border-t border-[var(--border)] shadow-[var(--shadow-2xl)] overflow-hidden py-10 lg:py-0"
     >
-      {/* =========================================================
-          CONSTANT FAR-RIGHT FOREST GREEN CORNER SHADE
-          Sleek, narrow diagonal Forest Green ribbon with gold hairline at top-right
-          ========================================================= */}
-      <div
-        className="absolute top-0 right-0 w-24 sm:w-32 md:w-36 h-36 sm:h-48 md:h-56 pointer-events-none z-0 overflow-hidden"
-        aria-hidden="true"
-      >
-        <svg viewBox="0 0 120 180" fill="none" className="w-full h-full">
-          {/* Narrow Forest Green ribbon */}
-          <polygon
-            points="30,0 60,0 120,135 120,180 110,180"
-            fill="url(#cardGreenGradTop)"
-          />
-          {/* Fine Gold Accent Boundary Line */}
-          <line
-            x1="30"
-            y1="0"
-            x2="110"
-            y2="180"
-            stroke="var(--gold-500)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient id="cardGreenGradTop" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="var(--green-600)" />
-              <stop offset="50%" stopColor="var(--green-700)" />
-              <stop offset="100%" stopColor="var(--green-900)" stopOpacity="0.85" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
       {/* Content Container (Centered in Viewport) */}
       <div className="relative z-10 w-full max-w-[var(--container-site)] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 items-center">
           {/* =========================================================
-              COLUMN 1: Step Counter Column ("01 /", "02 /", "03 /")
+              COLUMN 1: Step Counter Column ("01" with "/" underneath)
+              Matching Image 3 (Vertical Stacked 01 over /)
               ========================================================= */}
-          <div className="lg:col-span-1 flex lg:flex-col items-start justify-start lg:pr-4">
+          <div className="lg:col-span-1 flex items-center lg:items-start justify-start lg:pr-4">
             <div className="flex items-center gap-3">
-              <span className="font-[family-name:var(--font-display)] font-extrabold text-2xl sm:text-3xl text-[var(--paper)] tracking-tight">
-                {stepNumber} <span className="text-[var(--gold-400)]">/</span>
-              </span>
-              <span className="hidden lg:block w-[1.5px] h-8 bg-[var(--gold-500)]/40 rounded-full" aria-hidden="true" />
+              <div className="flex flex-col items-center">
+                <span className="font-[family-name:var(--font-display)] font-black text-3xl sm:text-4xl text-[var(--paper)] tracking-tight leading-none">
+                  {stepNumber}
+                </span>
+                <span className="font-[family-name:var(--font-display)] font-black text-2xl sm:text-3xl text-[var(--gold-400)] leading-none mt-1">
+                  /
+                </span>
+              </div>
+              <span className="hidden lg:block w-[1.5px] h-12 bg-[var(--gold-500)]/40 rounded-full ml-2" aria-hidden="true" />
             </div>
           </div>
 
           {/* =========================================================
-              COLUMN 2: Vertical Portrait Image with Gold Border & Opposite Corner Green Tabs
+              COLUMN 2: Enlarged Vertical Portrait Image with Gold Border & Corner Green Tabs
+              Increased size on left side as requested
               ========================================================= */}
-          <div className="lg:col-span-5 flex justify-center lg:px-4 xl:px-6">
-            <div className="relative w-full max-w-[380px] sm:max-w-[420px] lg:max-w-[450px]">
-              {/* Top-Left Diagonal Forest Green Corner Tab: Reduced to thin non-crowded accent */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-start lg:px-4 xl:px-6">
+            <div className="relative w-full max-w-[460px] sm:max-w-[500px] lg:max-w-[540px]">
+              {/* Top-Left Diagonal Forest Green Corner Tab */}
               <div
                 className="absolute -top-2 -left-2 w-9 h-9 sm:w-10 sm:h-10 pointer-events-none z-20 overflow-visible"
                 aria-hidden="true"
@@ -104,7 +77,7 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
                 </svg>
               </div>
 
-              {/* Bottom-Right Diagonal Forest Green Corner Tab: Reduced to thin non-crowded accent */}
+              {/* Bottom-Right Diagonal Forest Green Corner Tab */}
               <div
                 className="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 pointer-events-none z-20 overflow-visible"
                 aria-hidden="true"
@@ -131,13 +104,13 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
                 </svg>
               </div>
 
-              {/* The Vertical Portrait Image Box with Gold Border and Rounded Corners */}
+              {/* The Enlarged Vertical Portrait Image Box with Gold Border and Rounded Corners */}
               <div className="relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden border-[1.5px] border-[var(--gold-500)] bg-[var(--ink-950)] shadow-[var(--shadow-xl)] rounded-[var(--radius-lg)]">
                 <Image
                   src={panel.image}
                   alt={panel.imageAlt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 450px"
+                  sizes="(max-width: 1024px) 100vw, 540px"
                   className="object-cover object-center transition-transform duration-500 hover:scale-105"
                 />
 
@@ -159,7 +132,7 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
           {/* =========================================================
               COLUMN 3: Step Content (Eyebrow, Title, Body, Button)
               ========================================================= */}
-          <div className="lg:col-span-6 flex flex-col justify-center space-y-5 lg:pl-8 xl:pl-12 pt-4 lg:pt-0">
+          <div className="lg:col-span-5 flex flex-col justify-center space-y-5 lg:pl-6 xl:pl-10 pt-4 lg:pt-0">
             {/* Category Eyebrow in uppercase bold with gold square marker */}
             <div className="flex items-center gap-2.5">
               <span className="font-[family-name:var(--font-display)] font-bold text-xs sm:text-sm tracking-[var(--tracking-caps)] uppercase text-[var(--paper)]">
@@ -169,12 +142,12 @@ export function StagePanel({ panel, index, total }: StagePanelProps) {
             </div>
 
             {/* Step Title in bold Montserrat, crisp paper white */}
-            <h3 className="font-[family-name:var(--font-display)] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[length:var(--fs-4xl)] text-[var(--paper)] tracking-tight leading-[1.12]">
+            <h3 className="font-[family-name:var(--font-display)] font-extrabold text-2xl sm:text-3xl md:text-4xl text-[var(--paper)] tracking-tight leading-[1.12]">
               {panel.title}
             </h3>
 
             {/* Description Paragraphs in high-contrast warm white */}
-            <div className="space-y-3 pt-1 text-[var(--warm-100)] font-[family-name:var(--font-body)] font-medium text-sm sm:text-base lg:text-[length:var(--fs-md)] leading-relaxed max-w-[540px]">
+            <div className="space-y-3 pt-1 text-[var(--warm-100)] font-[family-name:var(--font-body)] font-medium text-sm sm:text-base leading-relaxed max-w-[500px]">
               <p>{panel.p1}</p>
               <p>{panel.p2}</p>
             </div>
