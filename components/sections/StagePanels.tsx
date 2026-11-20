@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { siteConfig } from "@/data/site";
 import { StagePanel } from "./StagePanel";
 
@@ -9,48 +8,92 @@ export function StagePanels() {
   const { stagePanels } = siteConfig;
 
   return (
-    <section id="process" className="relative w-full bg-[var(--bg-base)] border-t border-[var(--border)] select-none">
+    <section id="process" className="relative w-full bg-[var(--bg-base)] border-t border-[var(--border)] select-none overflow-hidden">
       {/* =========================================================
-          FULL-BLEED EDGE-TO-EDGE PANORAMIC NATURE BANNER
-          Spans 100% full width from left to right edge
-          Uses the user's authentic crushing plant & blue metal panorama
+          CONSTANT FAR-RIGHT FOREST GREEN CORNER SHADES
+          Top-Right & Bottom-Right Diagonal Accents with Gold Hairlines
+          Positioned on the section background outside the content cards
           ========================================================= */}
-      <div className="relative w-full h-[280px] sm:h-[360px] md:h-[420px] lg:h-[480px] xl:h-[520px] overflow-hidden border-b border-[var(--border)] bg-[var(--bg-base)]">
-        <Image
-          src="/images/quarry-crushing-panorama.jpg"
-          alt="Fortune Aggregates industrial cone crushing plant, conveyor systems, and blue metal aggregate stockpiles in Yedapadavu"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+      {/* Top-Right Far Corner Shade */}
+      <div
+        className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 h-64 sm:h-80 md:h-96 lg:h-[420px] pointer-events-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 360 420" fill="none" className="w-full h-full">
+          <polygon
+            points="140,0 360,0 360,420 220,420"
+            fill="url(#stageGreenGradTop)"
+          />
+          <line
+            x1="140"
+            y1="0"
+            x2="220"
+            y2="420"
+            stroke="var(--gold-500)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+          <defs>
+            <linearGradient id="stageGreenGradTop" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="var(--green-600)" />
+              <stop offset="50%" stopColor="var(--green-700)" />
+              <stop offset="100%" stopColor="var(--green-900)" stopOpacity="0.8" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
-        {/* Facility Location Badge in bottom right */}
-        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 px-3 py-1.5 rounded-[var(--radius-xs)] bg-[var(--ink-950)]/85 backdrop-blur-xs text-[length:var(--fs-xs)] font-[family-name:var(--font-display)] font-semibold text-[var(--gold-200)] tracking-wider uppercase select-none shadow-[var(--shadow-sm)]">
-          YEDAPADAVU CRUSHING FACILITY · MANGALURU
-        </div>
+      {/* Bottom-Right Far Corner Shade */}
+      <div
+        className="absolute bottom-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 h-64 sm:h-80 md:h-96 lg:h-[420px] pointer-events-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 360 420" fill="none" className="w-full h-full">
+          <polygon
+            points="220,0 360,0 360,420 140,420"
+            fill="url(#stageGreenGradBottom)"
+          />
+          <line
+            x1="220"
+            y1="0"
+            x2="140"
+            y2="420"
+            stroke="var(--gold-500)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+          <defs>
+            <linearGradient id="stageGreenGradBottom" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="var(--green-900)" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="var(--green-700)" />
+              <stop offset="100%" stopColor="var(--green-600)" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
 
       {/* =========================================================
           SECTION HEADER: Eyebrow + Large Display Headline
           ========================================================= */}
-      <div className="w-full max-w-[var(--container-site)] mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-8 sm:pb-12 border-b border-[var(--border)]">
-        <div className="flex items-center gap-2 text-[var(--ink-950)]">
-          <span className="font-[family-name:var(--font-display)] font-bold text-xs sm:text-sm tracking-[var(--tracking-caps)] uppercase">
-            SOLUTIONS & PROCESS
+      <div className="relative z-10 w-full max-w-[var(--container-site)] mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8 sm:pb-12 border-b border-[var(--border)]">
+        <div className="flex items-center gap-3">
+          <span className="font-[family-name:var(--font-display)] font-bold text-xs sm:text-sm tracking-[0.16em] uppercase text-[var(--paper)]">
+            SOLUTIONS &amp; PROCESS
           </span>
-          <span className="w-2 h-2 bg-[var(--ink-950)] inline-block" aria-hidden="true" />
+          <span className="w-8 h-[2.5px] bg-[var(--gold-500)] rounded-full shrink-0" aria-hidden="true" />
         </div>
 
-        <h2 className="mt-4 font-[family-name:var(--font-display)] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[length:var(--fs-4xl)] text-[var(--ink-950)] tracking-tight leading-[1.1]">
-          Sustainable crushing & precision grading for lasting structures
+        <h2 className="mt-4 font-[family-name:var(--font-display)] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[length:var(--fs-4xl)] tracking-tight leading-[1.12]">
+          <span className="text-[var(--paper)]">Sustainable crushing &amp; precision grading for </span>
+          <span className="block sm:inline text-[var(--gold-400)] fas-wordmark-gradient">lasting structures</span>
         </h2>
       </div>
 
       {/* =========================================================
           STEP-BY-STEP STACKED SCROLLING PANELS (01 /, 02 /, 03 /)
+          Each panel renders cleanly as user scrolls
           ========================================================= */}
-      <div className="relative w-full">
+      <div className="relative z-10 w-full">
         {stagePanels.map((panel, index) => (
           <StagePanel
             key={panel.title}
