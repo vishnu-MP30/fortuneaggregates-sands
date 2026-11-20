@@ -14,6 +14,7 @@ import {
   Route,
   LucideIcon,
   MessageCircle,
+  ArrowRight,
 } from "lucide-react";
 import { Material } from "@/data/materials";
 import { useCases } from "@/data/uses";
@@ -57,62 +58,87 @@ export function MaterialDetail({
       role="tabpanel"
       id={`panel-${material.slug}`}
       aria-labelledby={`tab-${material.slug}`}
-      className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-[var(--radius-xl)] shadow-[var(--shadow-lg)] p-[var(--space-5)] sm:p-[var(--space-6)] lg:p-[var(--space-7)] transition-colors duration-[var(--dur-base)]"
+      className="relative w-full rounded-[24px] bg-[var(--ink-950)]/90 backdrop-blur-xl border border-[var(--gold-500)]/35 shadow-[0_24px_60px_rgba(0,0,0,0.85)] p-6 sm:p-8 lg:p-10 overflow-hidden transition-colors duration-[var(--dur-base)]"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--space-6)] lg:gap-[var(--space-8)] items-center">
+      {/* Top-Right Angular Shade (Dual-band: Gold + Forest Green Accent Ribbon) */}
+      <div className="absolute top-0 right-0 w-28 sm:w-36 h-28 sm:h-36 pointer-events-none overflow-hidden z-20">
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 140 140"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <polygon
+            points="50,0 140,0 140,90 90,140 70,140 30,0"
+            fill="var(--green-700)"
+            fillOpacity="0.85"
+          />
+          <line
+            x1="30"
+            y1="0"
+            x2="70"
+            y2="140"
+            stroke="var(--gold-500)"
+            strokeWidth="1.5"
+            strokeOpacity="0.8"
+          />
+        </svg>
+      </div>
+
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
         {/* =========================================================
-            LEFT COLUMN (45% on lg): Large Circular Image & Concentric Rings
+            LEFT COLUMN: Large Circular Image & Concentric Golden Rings
             ========================================================= */}
-        <div className="lg:col-span-5 flex flex-col items-center justify-center relative py-[var(--space-4)] sm:py-[var(--space-6)]">
-          {/* One subtle gold glow behind the active big circle only */}
+        <div className="lg:col-span-5 flex flex-col items-center justify-center relative py-4 sm:py-6">
+          {/* Subtle gold radial glow behind the active circle */}
           <div
-            className="absolute w-[280px] sm:w-[360px] lg:w-[440px] h-[280px] sm:h-[360px] lg:h-[440px] rounded-full pointer-events-none -z-0 opacity-40 blur-[32px] bg-[radial-gradient(circle,var(--gold-500)_0%,transparent_70%)]"
+            className="absolute w-[280px] sm:w-[360px] lg:w-[420px] h-[280px] sm:h-[360px] lg:h-[420px] rounded-full pointer-events-none opacity-40 blur-[36px] bg-[radial-gradient(circle,var(--gold-500)_0%,transparent_70%)]"
             aria-hidden="true"
           />
 
           {/* Concentric Decorative Rings */}
           <div className="relative flex items-center justify-center">
-            {/* Outer faint ring: offset 32px, 40% opacity */}
+            {/* Outer concentric ring */}
             <div
-              className="absolute w-[344px] sm:w-[424px] lg:w-[504px] h-[344px] sm:h-[424px] lg:h-[504px] rounded-full border border-[var(--gold-300)] opacity-40 pointer-events-none"
+              className="absolute w-[310px] sm:w-[380px] lg:w-[440px] h-[310px] sm:h-[380px] lg:h-[440px] rounded-full border border-[var(--gold-500)]/30 pointer-events-none"
               aria-hidden="true"
             />
 
-            {/* Inner ring: offset 16px */}
+            {/* Inner concentric ring */}
             <div
-              className="absolute w-[312px] sm:w-[392px] lg:w-[472px] h-[312px] sm:h-[392px] lg:h-[472px] rounded-full border border-[var(--gold-300)] pointer-events-none"
+              className="absolute w-[280px] sm:w-[345px] lg:w-[400px] h-[280px] sm:h-[345px] lg:h-[400px] rounded-full border border-[var(--gold-500)]/50 pointer-events-none"
               aria-hidden="true"
             />
 
-            {/* Main Circular Image Frame: 440px desktop, 360px tablet, 280px mobile */}
+            {/* Main Circular Image Frame */}
             <div
               key={material.slug}
-              className="relative w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] lg:w-[440px] lg:h-[440px] rounded-full overflow-hidden shadow-[var(--shadow-lg)] border-4 border-[var(--surface)] ring-2 ring-[var(--gold-500)] animate-[detail-fade_var(--dur-slow)_var(--ease-out)] motion-reduce:animate-none bg-[var(--surface)]"
+              className="relative w-[250px] h-[250px] sm:w-[310px] sm:h-[310px] lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.85)] border-2 border-[var(--gold-500)] ring-4 ring-[var(--gold-500)]/20 bg-[var(--ink-950)] animate-[detail-fade_var(--dur-slow)_var(--ease-out)] motion-reduce:animate-none"
             >
               <Image
                 src={material.image}
                 alt={`${material.name} aggregate heap`}
                 fill
                 priority
-                sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 440px"
+                sizes="(max-width: 640px) 250px, (max-width: 1024px) 310px, 360px"
                 className="object-cover transition-transform duration-[var(--dur-slow)] ease-[var(--ease-out)] hover:scale-105"
               />
               {/* Subtle inner lens ring */}
               <div
-                className="absolute inset-0 rounded-full pointer-events-none ring-1 ring-inset ring-black/10"
+                className="absolute inset-0 rounded-full pointer-events-none ring-1 ring-inset ring-white/10"
                 aria-hidden="true"
               />
             </div>
 
-            {/* Floating round badge at lower right: size in Montserrat 800 on --grad-gold */}
+            {/* Floating round badge at lower right: size in bold on gold gradient */}
             <div
-              className="absolute -bottom-2 right-2 sm:bottom-2 sm:right-6 lg:bottom-4 lg:right-6 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[image:var(--grad-gold)] text-[var(--text-on-gold)] shadow-[var(--shadow-md)] border-2 border-[var(--surface)] flex flex-col items-center justify-center text-center select-none z-10"
+              className="absolute -bottom-2 right-2 sm:bottom-2 sm:right-6 lg:bottom-4 lg:right-6 w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[image:var(--grad-gold)] text-[var(--ink-950)] shadow-[0_8px_24px_rgba(0,0,0,0.6)] border-2 border-[var(--ink-950)] flex flex-col items-center justify-center text-center select-none z-10"
               aria-label={`Aggregate size: ${material.size}`}
             >
-              <span className="font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-xs)] sm:text-[length:var(--fs-sm)] uppercase tracking-tight leading-none">
+              <span className="font-[family-name:var(--font-display)] font-black text-sm sm:text-base uppercase tracking-tight leading-none text-[var(--ink-950)]">
                 {material.size}
               </span>
-              <span className="font-[family-name:var(--font-body)] text-[length:var(--fs-2xs)] font-semibold uppercase tracking-wider opacity-85 mt-0.5">
+              <span className="font-[family-name:var(--font-body)] text-[length:var(--fs-2xs)] font-extrabold uppercase tracking-widest text-[var(--ink-950)] mt-0.5">
                 GRADE
               </span>
             </div>
@@ -120,34 +146,40 @@ export function MaterialDetail({
         </div>
 
         {/* =========================================================
-            RIGHT COLUMN (55% on lg): Specifications, Uses, Features & CTAs
+            RIGHT COLUMN: Specifications, Uses, Features & CTAs
             ========================================================= */}
         <div
           key={`content-${material.slug}`}
-          className="lg:col-span-7 flex flex-col justify-between h-full pt-[var(--space-2)] animate-[detail-fade_var(--dur-slow)_var(--ease-out)] motion-reduce:animate-none"
+          className="lg:col-span-7 flex flex-col justify-between h-full pt-2 animate-[detail-fade_var(--dur-slow)_var(--ease-out)] motion-reduce:animate-none"
         >
           <div>
             {/* Eyebrow: material type */}
-            <span className="font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-xs)] sm:text-[length:var(--fs-sm)] tracking-[var(--tracking-caps)] uppercase text-[var(--gold-700)]">
-              {material.type}
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="font-[family-name:var(--font-display)] font-extrabold text-xs sm:text-sm tracking-[var(--tracking-caps)] uppercase text-[var(--gold-400)]">
+                {material.type}
+              </span>
+              <span
+                className="w-5 h-[2px] bg-[var(--gold-500)] inline-block"
+                aria-hidden="true"
+              />
+            </div>
 
-            {/* H3: material name, Montserrat 800 */}
-            <h3 className="mt-[var(--space-2)] font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-2xl)] sm:text-[length:var(--fs-3xl)] uppercase text-[var(--ink-950)] leading-[var(--lh-snug)]">
+            {/* H3: material name, bold uppercase */}
+            <h3 className="mt-2 font-[family-name:var(--font-display)] font-black text-2xl sm:text-3xl lg:text-4xl uppercase text-[var(--paper)] leading-tight tracking-tight">
               {material.name}
             </h3>
 
-            {/* One-line description, Quicksand 500, --fs-lg */}
-            <p className="mt-[var(--space-3)] font-[family-name:var(--font-body)] font-medium text-[length:var(--fs-md)] sm:text-[length:var(--fs-lg)] text-[var(--text-body)] leading-[var(--lh-relaxed)] max-w-[620px]">
+            {/* One-line description */}
+            <p className="mt-3 font-[family-name:var(--font-body)] font-medium text-sm sm:text-base text-[var(--warm-200)]/90 leading-relaxed max-w-[620px]">
               {material.description}
             </p>
 
             {/* "Best for" row with use-case chips */}
-            <div className="mt-[var(--space-5)]">
-              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--text-muted)] uppercase tracking-[var(--tracking-caps)] mb-[var(--space-2)]">
-                Best For
+            <div className="mt-5">
+              <span className="block font-[family-name:var(--font-display)] font-extrabold text-xs text-[var(--gold-400)] uppercase tracking-[var(--tracking-caps)] mb-2">
+                BEST FOR
               </span>
-              <div className="flex flex-wrap gap-[var(--space-2)]">
+              <div className="flex flex-wrap gap-2">
                 {material.uses.map((useId) => {
                   const match = useCases.find((u) => u.id === useId);
                   if (!match) return null;
@@ -156,9 +188,12 @@ export function MaterialDetail({
                   return (
                     <span
                       key={useId}
-                      className="inline-flex items-center gap-[var(--space-1)] px-[var(--space-3)] py-[var(--space-1)] rounded-[var(--radius-pill)] bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text-body)] font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)]"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--ink-950)]/70 border border-[var(--gold-500)]/30 text-[var(--paper)] font-[family-name:var(--font-body)] font-semibold text-xs"
                     >
-                      <UseIcon className="w-3.5 h-3.5 text-[var(--gold-600)] shrink-0" strokeWidth={2} />
+                      <UseIcon
+                        className="w-3.5 h-3.5 text-[var(--gold-400)] shrink-0"
+                        strokeWidth={2}
+                      />
                       <span>{match.label}</span>
                     </span>
                   );
@@ -166,16 +201,20 @@ export function MaterialDetail({
               </div>
             </div>
 
-            {/* "Features" list: 3-4 items with gold Check icon */}
-            <div className="mt-[var(--space-5)]">
-              <span className="block font-[family-name:var(--font-body)] font-semibold text-[length:var(--fs-xs)] text-[var(--text-muted)] uppercase tracking-[var(--tracking-caps)] mb-[var(--space-2)]">
-                Key Features
+            {/* "Features" list with gold Check icon */}
+            <div className="mt-5">
+              <span className="block font-[family-name:var(--font-display)] font-extrabold text-xs text-[var(--gold-400)] uppercase tracking-[var(--tracking-caps)] mb-2">
+                KEY FEATURES
               </span>
-              <ul className="space-y-[var(--space-2)] font-[family-name:var(--font-body)] text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--text-body)]">
+              <ul className="space-y-2 font-[family-name:var(--font-body)] text-xs sm:text-sm text-[var(--paper)]/95">
                 {material.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-[var(--space-2)]">
-                    <span className="p-0.5 rounded-full bg-[var(--accent-soft)] text-[var(--gold-600)] shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5" strokeWidth={2} aria-hidden="true" />
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="w-4 h-4 rounded-full bg-[var(--gold-500)]/20 text-[var(--gold-400)] flex items-center justify-center shrink-0 mt-0.5">
+                      <Check
+                        className="w-3 h-3 stroke-[3]"
+                        strokeWidth={3}
+                        aria-hidden="true"
+                      />
                     </span>
                     <span>{feature}</span>
                   </li>
@@ -183,29 +222,29 @@ export function MaterialDetail({
               </ul>
             </div>
 
-            {/* Small Spec Strip of 3 cells separated by hairlines */}
-            <div className="mt-[var(--space-6)] grid grid-cols-3 border border-[var(--border)] rounded-[var(--radius-md)] bg-[var(--surface-2)] overflow-hidden divide-x divide-[var(--border)]">
-              <div className="p-[var(--space-3)] sm:p-[var(--space-4)] flex flex-col">
-                <span className="font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-2xs)] text-[var(--text-muted)] uppercase tracking-[var(--tracking-caps)]">
+            {/* Spec Strip of 3 cells */}
+            <div className="mt-6 grid grid-cols-3 border border-[var(--gold-500)]/35 rounded-xl bg-[var(--ink-950)]/60 divide-x divide-[var(--gold-500)]/25 overflow-hidden backdrop-blur-sm">
+              <div className="p-3 sm:p-4 flex flex-col">
+                <span className="font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-2xs)] text-[var(--gold-300)] uppercase tracking-[var(--tracking-caps)]">
                   SIZE
                 </span>
-                <span className="mt-[var(--space-1)] font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--green-700)]">
+                <span className="mt-1 font-[family-name:var(--font-display)] font-bold text-sm sm:text-base text-[var(--paper)]">
                   {material.size}
                 </span>
               </div>
-              <div className="p-[var(--space-3)] sm:p-[var(--space-4)] flex flex-col">
-                <span className="font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-2xs)] text-[var(--text-muted)] uppercase tracking-[var(--tracking-caps)]">
+              <div className="p-3 sm:p-4 flex flex-col">
+                <span className="font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-2xs)] text-[var(--gold-300)] uppercase tracking-[var(--tracking-caps)]">
                   TYPE
                 </span>
-                <span className="mt-[var(--space-1)] font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-sm)] sm:text-[length:var(--fs-md)] text-[var(--green-700)] truncate">
+                <span className="mt-1 font-[family-name:var(--font-display)] font-bold text-sm sm:text-base text-[var(--paper)] truncate">
                   {material.type}
                 </span>
               </div>
-              <div className="p-[var(--space-3)] sm:p-[var(--space-4)] flex flex-col">
-                <span className="font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-2xs)] text-[var(--text-muted)] uppercase tracking-[var(--tracking-caps)]">
+              <div className="p-3 sm:p-4 flex flex-col">
+                <span className="font-[family-name:var(--font-display)] font-extrabold text-[length:var(--fs-2xs)] text-[var(--gold-300)] uppercase tracking-[var(--tracking-caps)]">
                   SUPPLY
                 </span>
-                <span className="mt-[var(--space-1)] font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-xs)] sm:text-[length:var(--fs-sm)] text-[var(--green-700)]">
+                <span className="mt-1 font-[family-name:var(--font-display)] font-bold text-xs sm:text-sm text-[var(--paper)]">
                   Per MT, ex-yard
                 </span>
               </div>
@@ -213,49 +252,50 @@ export function MaterialDetail({
           </div>
 
           {/* Action Row & Pagination Controls */}
-          <div className="mt-[var(--space-7)] pt-[var(--space-5)] border-t border-[var(--border)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-[var(--space-4)]">
+          <div className="mt-7 pt-5 border-t border-[var(--gold-500)]/25 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
             {/* Primary & Outline Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-[var(--space-3)] w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
               <Link
                 href={quoteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-[var(--space-6)] py-[var(--space-3)] rounded-[var(--radius-pill)] bg-[image:var(--grad-gold)] text-[var(--text-on-gold)] font-[family-name:var(--font-display)] font-bold text-[length:var(--fs-sm)] uppercase tracking-[var(--tracking-wide)] shadow-[var(--shadow-sm)] hover:brightness-105 active:brightness-95 transition-all text-center"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-full bg-[var(--gold-500)] hover:bg-[var(--gold-400)] text-[var(--ink-950)] font-[family-name:var(--font-display)] font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_24px_rgba(200,151,31,0.35)] hover:shadow-[0_0_32px_rgba(200,151,31,0.55)] transition-all text-center"
               >
-                Request a Quote
+                <span>Request a Quote</span>
+                <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
               </Link>
               <Link
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-[var(--space-2)] px-[var(--space-5)] py-[var(--space-3)] rounded-[var(--radius-pill)] border border-[var(--border-strong)] bg-[var(--surface)] text-[var(--green-700)] font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-sm)] uppercase tracking-[var(--tracking-wide)] hover:bg-[var(--surface-2)] transition-colors text-center"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full border border-[var(--gold-500)]/50 bg-[var(--ink-950)]/60 hover:border-[var(--gold-400)] hover:bg-[var(--ink-950)] text-[var(--paper)] font-[family-name:var(--font-display)] font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors text-center"
               >
-                <MessageCircle className="w-4 h-4 text-[var(--accent)]" />
+                <MessageCircle className="w-4 h-4 text-[var(--gold-400)]" />
                 <span>Ask on WhatsApp</span>
               </Link>
             </div>
 
             {/* Pagination Controls at Bottom Right */}
-            <div className="flex items-center justify-end sm:justify-start gap-[var(--space-3)] select-none">
-              <span className="font-[family-name:var(--font-display)] font-semibold text-[length:var(--fs-xs)] text-[var(--text-muted)] tracking-wider">
+            <div className="flex items-center justify-end sm:justify-start gap-3 select-none">
+              <span className="font-[family-name:var(--font-display)] font-bold text-xs sm:text-sm text-[var(--paper)]/80 tracking-wider">
                 {counterText}
               </span>
-              <div className="flex items-center gap-[var(--space-1)]">
+              <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   onClick={onPrev}
                   aria-label="Previous material"
-                  className="p-[var(--space-2)] rounded-[var(--radius-pill)] border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface-2)] text-[var(--green-700)] transition-colors focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-[var(--focus-ring)] cursor-pointer"
+                  className="p-2.5 rounded-full border border-[var(--gold-500)]/40 hover:border-[var(--gold-400)] bg-[var(--ink-950)]/70 hover:bg-[var(--ink-950)] text-[var(--paper)] hover:text-[var(--gold-400)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold-500)] cursor-pointer"
                 >
-                  <ChevronLeft className="w-4 h-4" strokeWidth={2} />
+                  <ChevronLeft className="w-4 h-4" strokeWidth={2.5} />
                 </button>
                 <button
                   type="button"
                   onClick={onNext}
                   aria-label="Next material"
-                  className="p-[var(--space-2)] rounded-[var(--radius-pill)] border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface-2)] text-[var(--green-700)] transition-colors focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-[var(--focus-ring)] cursor-pointer"
+                  className="p-2.5 rounded-full border border-[var(--gold-500)]/40 hover:border-[var(--gold-400)] bg-[var(--ink-950)]/70 hover:bg-[var(--ink-950)] text-[var(--paper)] hover:text-[var(--gold-400)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold-500)] cursor-pointer"
                 >
-                  <ChevronRight className="w-4 h-4" strokeWidth={2} />
+                  <ChevronRight className="w-4 h-4" strokeWidth={2.5} />
                 </button>
               </div>
             </div>
