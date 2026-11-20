@@ -8,7 +8,7 @@ export function StagePanels() {
   const { stagePanels } = siteConfig;
 
   return (
-    <section id="process" className="relative w-full bg-[var(--bg-base)] border-t border-[var(--border)] select-none overflow-hidden">
+    <section id="process" className="relative w-full bg-[var(--bg-base)] border-t border-[var(--border)] select-none overflow-visible">
       {/* =========================================================
           CONSTANT FAR-RIGHT FOREST GREEN CORNER SHADES
           Top-Right & Bottom-Right Diagonal Accents with Gold Hairlines
